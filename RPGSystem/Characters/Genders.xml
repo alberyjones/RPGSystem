@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Genders>
+  <Sexes>
+    <Sex
+      Identifier="Male"
+    />
+    <Sex
+      Identifier="Female"
+    />
+    <Sex
+      Identifier="Intersex"
+    />
+  </Sexes>
+  <GenderExpressions>
+    <GenderExpression
+      Identifier="Man"
+    />
+    <GenderExpression
+      Identifier="Woman"
+    />
+    <GenderExpression
+      Identifier="GenderFluid"
+      DisplayName="Gender-fluid"
+    />
+    <GenderExpression
+      Identifier="NonBinary"
+      DisplayName="Non-binary"
+    />
+  </GenderExpressions>
+</Genders>

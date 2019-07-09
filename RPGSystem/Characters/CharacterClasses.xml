@@ -1,0 +1,377 @@
+<?xml version="1.0"?>
+<CharacterClasses xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AllClasses>
+    <Class
+      Identifier="Barbarian"
+      MaxHit="12"
+      AllowMultiplePrimaryAbilities="false"
+      Description="A fierce warrior of primitive background who can enter a battle rage"
+      PrimaryAbilities="Strength"
+      SavingThrowProficiencies="Strength,Constitution"
+      EquipmentProficiencies="LightArmor,MediumArmor,Shield,SimpleWeapon,MartialWeapon">
+      <LevelModifiers>
+        <LevelModifier Level="1"  ProficiencyBonus="2" Rages="2" RageDamage="2" Features="Rage,UnarmouredDefense"/>
+        <LevelModifier Level="2"  ProficiencyBonus="2" Rages="2" RageDamage="2" Features="RecklessAttack,DangerSense"/>
+        <LevelModifier Level="3"  ProficiencyBonus="2" Rages="3" RageDamage="2" Features="PrimalPath"/>
+        <LevelModifier Level="4"  ProficiencyBonus="2" Rages="3" RageDamage="2" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="5"  ProficiencyBonus="3" Rages="3" RageDamage="2" Features="ExtraAttack,FastMovement"/>
+        <LevelModifier Level="6"  ProficiencyBonus="3" Rages="4" RageDamage="2" Features="PathFeature"/>
+        <LevelModifier Level="7"  ProficiencyBonus="3" Rages="4" RageDamage="2" Features="FeralInstinct"/>
+        <LevelModifier Level="8"  ProficiencyBonus="3" Rages="4" RageDamage="2" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="9"  ProficiencyBonus="4" Rages="4" RageDamage="3" Features="BrutalCritical1d"/>
+        <LevelModifier Level="10" ProficiencyBonus="4" Rages="4" RageDamage="3" Features="PathFeature"/>
+        <LevelModifier Level="11" ProficiencyBonus="4" Rages="4" RageDamage="3" Features="RelentlessRage"/>
+        <LevelModifier Level="12" ProficiencyBonus="4" Rages="5" RageDamage="3" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="13" ProficiencyBonus="5" Rages="5" RageDamage="3" Features="BrutalCritical2d"/>
+        <LevelModifier Level="14" ProficiencyBonus="5" Rages="5" RageDamage="3" Features="PathFeature"/>
+        <LevelModifier Level="15" ProficiencyBonus="5" Rages="5" RageDamage="3" Features="PersistentRage"/>
+        <LevelModifier Level="16" ProficiencyBonus="5" Rages="5" RageDamage="4" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="17" ProficiencyBonus="6" Rages="6" RageDamage="4" Features="BrutalCritical3d"/>
+        <LevelModifier Level="18" ProficiencyBonus="6" Rages="6" RageDamage="4" Features="IndomitableMight"/>
+        <LevelModifier Level="19" ProficiencyBonus="6" Rages="6" RageDamage="4" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="20" ProficiencyBonus="6" Rages="999" RageDamage="4" Features="PrimalChampion"/>
+      </LevelModifiers>
+    </Class>
+    <Class
+      Identifier="Bard"
+      MaxHit="8"
+      AllowMultiplePrimaryAbilities="false"
+      Description="An inspiring magician whose power echoes the music of creation"
+      PrimaryAbilities="Charisma"
+      SavingThrowProficiencies="Dexterity,Charisma"
+      EquipmentProficiencies="LightArmor,SimpleWeapon,HandCrossbow,Longsword,Rapier,Shortsword">
+      <LevelModifiers>
+        <LevelModifier Level="1"  ProficiencyBonus="2" CantripsKnown="2" SpellsKnown="4"  SpellSlots="2,0,0,0,0,0,0,0,0" Features="Spellcasting,BardicInspirationd6"/>
+        <LevelModifier Level="2"  ProficiencyBonus="2" CantripsKnown="2" SpellsKnown="5"  SpellSlots="3,0,0,0,0,0,0,0,0" Features="JackOfAllTrades,SongOfRestd6"/>
+        <LevelModifier Level="3"  ProficiencyBonus="2" CantripsKnown="2" SpellsKnown="6"  SpellSlots="4,2,0,0,0,0,0,0,0" Features="BardCollege,Expertise"/>
+        <LevelModifier Level="4"  ProficiencyBonus="2" CantripsKnown="3" SpellsKnown="7"  SpellSlots="4,3,0,0,0,0,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="5"  ProficiencyBonus="3" CantripsKnown="3" SpellsKnown="8"  SpellSlots="4,3,2,0,0,0,0,0,0" Features="BardicInspirationd8,FontOfInspiration"/>
+        <LevelModifier Level="6"  ProficiencyBonus="3" CantripsKnown="3" SpellsKnown="9"  SpellSlots="4,3,3,0,0,0,0,0,0" Features="Countercharm,BardCollegeFeature"/>
+        <LevelModifier Level="7"  ProficiencyBonus="3" CantripsKnown="3" SpellsKnown="10" SpellSlots="4,3,3,1,0,0,0,0,0" Features=""/>
+        <LevelModifier Level="8"  ProficiencyBonus="3" CantripsKnown="3" SpellsKnown="11" SpellSlots="4,3,3,2,0,0,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="9"  ProficiencyBonus="4" CantripsKnown="3" SpellsKnown="12" SpellSlots="4,3,3,3,1,0,0,0,0" Features="SongOfRestd8"/>
+        <LevelModifier Level="10" ProficiencyBonus="4" CantripsKnown="4" SpellsKnown="14" SpellSlots="4,3,3,3,2,0,0,0,0" Features="BardicInspirationd10,Expertise,MagicalSecrets"/>
+        <LevelModifier Level="11" ProficiencyBonus="4" CantripsKnown="4" SpellsKnown="15" SpellSlots="4,3,3,3,2,1,0,0,0" Features=""/>
+        <LevelModifier Level="12" ProficiencyBonus="4" CantripsKnown="4" SpellsKnown="15" SpellSlots="4,3,3,3,2,1,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="13" ProficiencyBonus="5" CantripsKnown="4" SpellsKnown="16" SpellSlots="4,3,3,3,2,1,1,0,0" Features="SongOfRestd10"/>
+        <LevelModifier Level="14" ProficiencyBonus="5" CantripsKnown="4" SpellsKnown="18" SpellSlots="4,3,3,3,2,1,1,0,0" Features="MagicalSecrets,BardCollegeFeature"/>
+        <LevelModifier Level="15" ProficiencyBonus="5" CantripsKnown="4" SpellsKnown="19" SpellSlots="4,3,3,3,2,1,1,1,0" Features="BardicInspirationd12"/>
+        <LevelModifier Level="16" ProficiencyBonus="5" CantripsKnown="4" SpellsKnown="19" SpellSlots="4,3,3,3,2,1,1,1,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="17" ProficiencyBonus="6" CantripsKnown="4" SpellsKnown="20" SpellSlots="4,3,3,3,2,1,1,1,1" Features="SongOfRestd12"/>
+        <LevelModifier Level="18" ProficiencyBonus="6" CantripsKnown="4" SpellsKnown="22" SpellSlots="4,3,3,3,3,1,1,1,1" Features="MagicalSecrets"/>
+        <LevelModifier Level="19" ProficiencyBonus="6" CantripsKnown="4" SpellsKnown="22" SpellSlots="4,3,3,3,3,2,1,1,1" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="20" ProficiencyBonus="6" CantripsKnown="4" SpellsKnown="22" SpellSlots="4,3,3,3,3,2,2,1,1" Features="SuperiorInspiration"/>
+      </LevelModifiers>
+    </Class>
+    <Class
+      Identifier="Cleric"
+      MaxHit="8"
+      AllowMultiplePrimaryAbilities="false"
+      Description="A priestly champion who wields divine magic in service of a higher power"
+      PrimaryAbilities="Wisdom"
+      SavingThrowProficiencies="Wisdom,Charisma"
+      EquipmentProficiencies="LightArmor,MediumArmor,Shield,SimpleWeapon">
+      <LevelModifiers>
+        <LevelModifier Level="1"  ProficiencyBonus="2" CantripsKnown="3" SpellSlots="2,0,0,0,0,0,0,0,0" Features="Spellcasting,DivineDomain"/>
+        <LevelModifier Level="2"  ProficiencyBonus="2" CantripsKnown="3" SpellSlots="3,0,0,0,0,0,0,0,0" Features="ChannelDivinity1r,DivineDomainFeature"/>
+        <LevelModifier Level="3"  ProficiencyBonus="2" CantripsKnown="3" SpellSlots="4,2,0,0,0,0,0,0,0" Features=""/>
+        <LevelModifier Level="4"  ProficiencyBonus="2" CantripsKnown="4" SpellSlots="4,3,0,0,0,0,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="5"  ProficiencyBonus="3" CantripsKnown="4" SpellSlots="4,3,2,0,0,0,0,0,0" Features="DestroyUndeadCRhalf"/>
+        <LevelModifier Level="6"  ProficiencyBonus="3" CantripsKnown="4" SpellSlots="4,3,3,0,0,0,0,0,0" Features="ChannelDivinity2r,DivineDomainFeature"/>
+        <LevelModifier Level="7"  ProficiencyBonus="3" CantripsKnown="4" SpellSlots="4,3,3,1,0,0,0,0,0" Features=""/>
+        <LevelModifier Level="8"  ProficiencyBonus="3" CantripsKnown="4" SpellSlots="4,3,3,2,0,0,0,0,0" Features="AbilityScoreImprovement,DestroyUndeadCR1,DivineDomainFeature"/>
+        <LevelModifier Level="9"  ProficiencyBonus="4" CantripsKnown="4" SpellSlots="4,3,3,3,1,0,0,0,0" Features=""/>
+        <LevelModifier Level="10" ProficiencyBonus="4" CantripsKnown="5" SpellSlots="4,3,3,3,2,0,0,0,0" Features="DivineIntervention"/>
+        <LevelModifier Level="11" ProficiencyBonus="4" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,0,0,0" Features="DestroyUndeadCR2"/>
+        <LevelModifier Level="12" ProficiencyBonus="4" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="13" ProficiencyBonus="5" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,1,0,0" Features=""/>
+        <LevelModifier Level="14" ProficiencyBonus="5" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,1,0,0" Features="DestroyUndeadCR3"/>
+        <LevelModifier Level="15" ProficiencyBonus="5" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,1,1,0" Features=""/>
+        <LevelModifier Level="16" ProficiencyBonus="5" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,1,1,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="17" ProficiencyBonus="6" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,1,1,1" Features="DestroyUndeadCR4,DivineDomainFeature"/>
+        <LevelModifier Level="18" ProficiencyBonus="6" CantripsKnown="5" SpellSlots="4,3,3,3,3,1,1,1,1" Features="ChannelDivinity3r"/>
+        <LevelModifier Level="19" ProficiencyBonus="6" CantripsKnown="5" SpellSlots="4,3,3,3,3,2,1,1,1" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="20" ProficiencyBonus="6" CantripsKnown="5" SpellSlots="4,3,3,3,3,2,2,1,1" Features="DivineInterventionImprovement"/>
+      </LevelModifiers>
+    </Class>
+    <Class
+      Identifier="Druid"
+      MaxHit="8"
+      AllowMultiplePrimaryAbilities="false"
+      Description="A priest of the Old Faith, wielding the powers of nature - moonlight and plant growth, fire and lightning - and adopting animal forms"
+      PrimaryAbilities="Wisdom"
+      SavingThrowProficiencies="Intelligence,Wisdom"
+      EquipmentProficiencies="LightArmorNonMetal,MediumArmorNonMetal,ShieldNonMetal,Club,Dagger,Dart,Javelin,Mace,Quarterstaff,Scimitar,Sickle,Sling,Spear">
+      <LevelModifiers>
+        <LevelModifier Level="1"  ProficiencyBonus="2" CantripsKnown="2" SpellSlots="2,0,0,0,0,0,0,0,0" Features="Spellcasting,Druidic"/>
+        <LevelModifier Level="2"  ProficiencyBonus="2" CantripsKnown="2" SpellSlots="3,0,0,0,0,0,0,0,0" Features="WildShape,DruidCircle"/>
+        <LevelModifier Level="3"  ProficiencyBonus="2" CantripsKnown="2" SpellSlots="4,2,0,0,0,0,0,0,0" Features=""/>
+        <LevelModifier Level="4"  ProficiencyBonus="2" CantripsKnown="3" SpellSlots="4,3,0,0,0,0,0,0,0" Features="WildShapeImprovement,AbilityScoreImprovement"/>
+        <LevelModifier Level="5"  ProficiencyBonus="3" CantripsKnown="3" SpellSlots="4,3,2,0,0,0,0,0,0" Features=""/>
+        <LevelModifier Level="6"  ProficiencyBonus="3" CantripsKnown="3" SpellSlots="4,3,3,0,0,0,0,0,0" Features="DruidCircleFeature"/>
+        <LevelModifier Level="7"  ProficiencyBonus="3" CantripsKnown="3" SpellSlots="4,3,3,1,0,0,0,0,0" Features=""/>
+        <LevelModifier Level="8"  ProficiencyBonus="3" CantripsKnown="3" SpellSlots="4,3,3,2,0,0,0,0,0" Features="WildShapeImprovement,AbilityScoreImprovement"/>
+        <LevelModifier Level="9"  ProficiencyBonus="4" CantripsKnown="3" SpellSlots="4,3,3,3,1,0,0,0,0" Features=""/>
+        <LevelModifier Level="10" ProficiencyBonus="4" CantripsKnown="4" SpellSlots="4,3,3,3,2,0,0,0,0" Features="DruidCircleFeature"/>
+        <LevelModifier Level="11" ProficiencyBonus="4" CantripsKnown="4" SpellSlots="4,3,3,3,2,1,0,0,0" Features=""/>
+        <LevelModifier Level="12" ProficiencyBonus="4" CantripsKnown="4" SpellSlots="4,3,3,3,2,1,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="13" ProficiencyBonus="5" CantripsKnown="4" SpellSlots="4,3,3,3,2,1,1,0,0" Features=""/>
+        <LevelModifier Level="14" ProficiencyBonus="5" CantripsKnown="4" SpellSlots="4,3,3,3,2,1,1,0,0" Features="DruidCircleFeature"/>
+        <LevelModifier Level="15" ProficiencyBonus="5" CantripsKnown="4" SpellSlots="4,3,3,3,2,1,1,1,0" Features=""/>
+        <LevelModifier Level="16" ProficiencyBonus="5" CantripsKnown="4" SpellSlots="4,3,3,3,2,1,1,1,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="17" ProficiencyBonus="6" CantripsKnown="4" SpellSlots="4,3,3,3,2,1,1,1,1" Features=""/>
+        <LevelModifier Level="18" ProficiencyBonus="6" CantripsKnown="4" SpellSlots="4,3,3,3,3,1,1,1,1" Features="TimelessBody,BeastSpells"/>
+        <LevelModifier Level="19" ProficiencyBonus="6" CantripsKnown="4" SpellSlots="4,3,3,3,3,2,1,1,1" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="20" ProficiencyBonus="6" CantripsKnown="4" SpellSlots="4,3,3,3,3,2,2,1,1" Features="Archdruid"/>
+      </LevelModifiers>
+    </Class>
+    <Class
+      Identifier="Fighter"
+      MaxHit="10"
+      AllowMultiplePrimaryAbilities="false"
+      Description="A master of combat, skilled with a variety of weapons and armour"
+      PrimaryAbilities="Strength,Dexterity"
+      SavingThrowProficiencies="Strength,Constitution"
+      EquipmentProficiencies="Armor,Shield,SimpleWeapon,MartialWeapon">
+      <LevelModifiers>
+        <LevelModifier Level="1"  ProficiencyBonus="2" Features="FightingStyle,SecondWind"/>
+        <LevelModifier Level="2"  ProficiencyBonus="2" Features="ActionSurge1Use"/>
+        <LevelModifier Level="3"  ProficiencyBonus="2" Features="MartialArchetype"/>
+        <LevelModifier Level="4"  ProficiencyBonus="2" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="5"  ProficiencyBonus="3" Features="ExtraAttack"/>
+        <LevelModifier Level="6"  ProficiencyBonus="3" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="7"  ProficiencyBonus="3" Features="MartialArchetypeFeature"/>
+        <LevelModifier Level="8"  ProficiencyBonus="3" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="9"  ProficiencyBonus="4" Features="Indomitable1Use"/>
+        <LevelModifier Level="10" ProficiencyBonus="4" Features="MartialArchetypeFeature"/>
+        <LevelModifier Level="11" ProficiencyBonus="4" Features="ExtraAttack2"/>
+        <LevelModifier Level="12" ProficiencyBonus="4" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="13" ProficiencyBonus="5" Features="Indomitable2Use"/>
+        <LevelModifier Level="14" ProficiencyBonus="5" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="15" ProficiencyBonus="5" Features="MartialArchetypeFeature"/>
+        <LevelModifier Level="16" ProficiencyBonus="5" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="17" ProficiencyBonus="6" Features="ActionSurge2Use,Indomitable3Use"/>
+        <LevelModifier Level="18" ProficiencyBonus="6" Features="MartialArchetypeFeature"/>
+        <LevelModifier Level="19" ProficiencyBonus="6" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="20" ProficiencyBonus="6" Features="ExtraAttack3"/>
+      </LevelModifiers>
+    </Class>
+    <Class
+      Identifier="Monk"
+      MaxHit="8"
+      AllowMultiplePrimaryAbilities="true"
+      Description="A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection"
+      PrimaryAbilities="Dexterity,Wisdom"
+      SavingThrowProficiencies="Strength,Dexterity"
+      EquipmentProficiencies="SimpleWeapon,Shortsword">
+      <LevelModifiers>
+        <LevelModifier Level="1"  ProficiencyBonus="2" MartialArts="1d4"  KiPoints="0"  UnarmoredMovement="0"  Features="UnarmoredDefense,MartialArts"/>
+        <LevelModifier Level="2"  ProficiencyBonus="2" MartialArts="1d4"  KiPoints="2"  UnarmoredMovement="10" Features="Ki,UnarmoredMovement"/>
+        <LevelModifier Level="3"  ProficiencyBonus="2" MartialArts="1d4"  KiPoints="3"  UnarmoredMovement="10" Features="MonasticTradition,DeflectMissiles"/>
+        <LevelModifier Level="4"  ProficiencyBonus="2" MartialArts="1d4"  KiPoints="4"  UnarmoredMovement="10" Features="AbilityScoreImprovement,SlowFall"/>
+        <LevelModifier Level="5"  ProficiencyBonus="3" MartialArts="1d6"  KiPoints="5"  UnarmoredMovement="10" Features="ExtraAttack,StunningStrike"/>
+        <LevelModifier Level="6"  ProficiencyBonus="3" MartialArts="1d6"  KiPoints="6"  UnarmoredMovement="15" Features="KiEmpoweredStrikes,MonasticTraditionFeature"/>
+        <LevelModifier Level="7"  ProficiencyBonus="3" MartialArts="1d6"  KiPoints="7"  UnarmoredMovement="15" Features="Evasion,StillnessOfMind"/>
+        <LevelModifier Level="8"  ProficiencyBonus="3" MartialArts="1d6"  KiPoints="8"  UnarmoredMovement="15" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="9"  ProficiencyBonus="4" MartialArts="1d6"  KiPoints="9"  UnarmoredMovement="15" Features="UnarmoredMovementImprovement"/>
+        <LevelModifier Level="10" ProficiencyBonus="4" MartialArts="1d6"  KiPoints="10" UnarmoredMovement="20" Features="PurityOfBody"/>
+        <LevelModifier Level="11" ProficiencyBonus="4" MartialArts="1d8"  KiPoints="11" UnarmoredMovement="20" Features="MonasticTraditionFeature"/>
+        <LevelModifier Level="12" ProficiencyBonus="4" MartialArts="1d8"  KiPoints="12" UnarmoredMovement="20" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="13" ProficiencyBonus="5" MartialArts="1d8"  KiPoints="13" UnarmoredMovement="20" Features="TongueOfTheSunAndMoon"/>
+        <LevelModifier Level="14" ProficiencyBonus="5" MartialArts="1d8"  KiPoints="14" UnarmoredMovement="20" Features="DiamondSoul"/>
+        <LevelModifier Level="15" ProficiencyBonus="5" MartialArts="1d8"  KiPoints="15" UnarmoredMovement="25" Features="TimelessBody"/>
+        <LevelModifier Level="16" ProficiencyBonus="5" MartialArts="1d8"  KiPoints="16" UnarmoredMovement="25" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="17" ProficiencyBonus="6" MartialArts="1d10" KiPoints="17" UnarmoredMovement="25" Features="MonasticTraditionFeature"/>
+        <LevelModifier Level="18" ProficiencyBonus="6" MartialArts="1d10" KiPoints="18" UnarmoredMovement="30" Features="EmptyBody"/>
+        <LevelModifier Level="19" ProficiencyBonus="6" MartialArts="1d10" KiPoints="19" UnarmoredMovement="30" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="20" ProficiencyBonus="6" MartialArts="1d10" KiPoints="20" UnarmoredMovement="30" Features="PerfectSelf"/>
+      </LevelModifiers>
+    </Class>
+    <Class
+      Identifier="Paladin"
+      MaxHit="10"
+      AllowMultiplePrimaryAbilities="true"
+      Description="A holy warrior bound to a sacred oath"
+      PrimaryAbilities="Strength,Charisma"
+      SavingThrowProficiencies="Wisdom,Charisma"
+      EquipmentProficiencies="Armor,Shield,SimpleWeapon,MartialWeapon">
+      <LevelModifiers>
+        <LevelModifier Level="1"  ProficiencyBonus="2" SpellSlots="0,0,0,0,0" Features="DivineSense,LayOnHands"/>
+        <LevelModifier Level="2"  ProficiencyBonus="2" SpellSlots="2,0,0,0,0" Features="FightingStyle,Spellcasting,DivineSmite"/>
+        <LevelModifier Level="3"  ProficiencyBonus="2" SpellSlots="3,0,0,0,0" Features="DivineHealth,SacredOath"/>
+        <LevelModifier Level="4"  ProficiencyBonus="2" SpellSlots="3,0,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="5"  ProficiencyBonus="3" SpellSlots="4,2,0,0,0" Features="ExtraAttack"/>
+        <LevelModifier Level="6"  ProficiencyBonus="3" SpellSlots="4,2,0,0,0" Features="AuraOfProtection"/>
+        <LevelModifier Level="7"  ProficiencyBonus="3" SpellSlots="4,3,0,0,0" Features="SacredOathFeature"/>
+        <LevelModifier Level="8"  ProficiencyBonus="3" SpellSlots="4,3,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="9"  ProficiencyBonus="4" SpellSlots="4,3,2,0,0" Features=""/>
+        <LevelModifier Level="10" ProficiencyBonus="4" SpellSlots="4,3,2,0,0" Features="AuraOfCourage"/>
+        <LevelModifier Level="11" ProficiencyBonus="4" SpellSlots="4,3,3,0,0" Features="ImprovedDivineSmite"/>
+        <LevelModifier Level="12" ProficiencyBonus="4" SpellSlots="4,3,3,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="13" ProficiencyBonus="5" SpellSlots="4,3,3,1,0" Features=""/>
+        <LevelModifier Level="14" ProficiencyBonus="5" SpellSlots="4,3,3,1,0" Features="CleansingTouch"/>
+        <LevelModifier Level="15" ProficiencyBonus="5" SpellSlots="4,3,3,2,0" Features="SacredOathFeature"/>
+        <LevelModifier Level="16" ProficiencyBonus="5" SpellSlots="4,3,3,2,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="17" ProficiencyBonus="6" SpellSlots="4,3,3,3,1" Features=""/>
+        <LevelModifier Level="18" ProficiencyBonus="6" SpellSlots="4,3,3,3,1" Features="AuraImprovements"/>
+        <LevelModifier Level="19" ProficiencyBonus="6" SpellSlots="4,3,3,3,2" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="20" ProficiencyBonus="6" SpellSlots="4,3,3,3,2" Features="SacredOathFeature"/>
+      </LevelModifiers>
+    </Class>
+    <Class
+      Identifier="Ranger"
+      MaxHit="10"
+      AllowMultiplePrimaryAbilities="true"
+      Description="A warrior who uses martial prowess and nature magic to combat threats on the edges of civilization"
+      PrimaryAbilities="Dexterity,Wisdom"
+      SavingThrowProficiencies="Strength,Dexterity"
+      EquipmentProficiencies="LightArmor,MediumArmor,Shield,SimpleWeapon,MartialWeapon">
+      <LevelModifiers>
+        <LevelModifier Level="1"  ProficiencyBonus="2" SpellsKnown="0"  SpellSlots="0,0,0,0,0" Features="FavoredEnemy,NaturalExplorer"/>
+        <LevelModifier Level="2"  ProficiencyBonus="2" SpellsKnown="2"  SpellSlots="2,0,0,0,0" Features="FightingStyle,Spellcasting"/>
+        <LevelModifier Level="3"  ProficiencyBonus="2" SpellsKnown="3"  SpellSlots="3,0,0,0,0" Features="RangerArchetype,PrimevalAwareness"/>
+        <LevelModifier Level="4"  ProficiencyBonus="2" SpellsKnown="3"  SpellSlots="3,0,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="5"  ProficiencyBonus="3" SpellsKnown="4"  SpellSlots="4,2,0,0,0" Features="ExtraAttack"/>
+        <LevelModifier Level="6"  ProficiencyBonus="3" SpellsKnown="4"  SpellSlots="4,2,0,0,0" Features="FavoredEnemyImprovement,NaturalExplorerImprovement"/>
+        <LevelModifier Level="7"  ProficiencyBonus="3" SpellsKnown="5"  SpellSlots="4,3,0,0,0" Features="RangerArchetypeFeature"/>
+        <LevelModifier Level="8"  ProficiencyBonus="3" SpellsKnown="5"  SpellSlots="4,3,0,0,0" Features="AbilityScoreImprovement,LandsStride"/>
+        <LevelModifier Level="9"  ProficiencyBonus="4" SpellsKnown="6"  SpellSlots="4,3,2,0,0" Features=""/>
+        <LevelModifier Level="10" ProficiencyBonus="4" SpellsKnown="6"  SpellSlots="4,3,2,0,0" Features="NaturalExplorerImprovement,HideInPlainSight"/>
+        <LevelModifier Level="11" ProficiencyBonus="4" SpellsKnown="7"  SpellSlots="4,3,3,0,0" Features="RangerArchetypeFeature"/>
+        <LevelModifier Level="12" ProficiencyBonus="4" SpellsKnown="7"  SpellSlots="4,3,3,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="13" ProficiencyBonus="5" SpellsKnown="8"  SpellSlots="4,3,3,1,0" Features=""/>
+        <LevelModifier Level="14" ProficiencyBonus="5" SpellsKnown="8"  SpellSlots="4,3,3,1,0" Features="FavoredEnemyImprovement,Vanish"/>
+        <LevelModifier Level="15" ProficiencyBonus="5" SpellsKnown="9"  SpellSlots="4,3,3,2,0" Features="RangerArchetypeFeature"/>
+        <LevelModifier Level="16" ProficiencyBonus="5" SpellsKnown="9"  SpellSlots="4,3,3,2,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="17" ProficiencyBonus="6" SpellsKnown="10" SpellSlots="4,3,3,3,1" Features=""/>
+        <LevelModifier Level="18" ProficiencyBonus="6" SpellsKnown="10" SpellSlots="4,3,3,3,1" Features="FeralSenses"/>
+        <LevelModifier Level="19" ProficiencyBonus="6" SpellsKnown="11" SpellSlots="4,3,3,3,2" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="20" ProficiencyBonus="6" SpellsKnown="11" SpellSlots="4,3,3,3,2" Features="FoeSlayer"/>
+      </LevelModifiers>
+    </Class>
+    <Class
+      Identifier="Rogue"
+      MaxHit="8"
+      AllowMultiplePrimaryAbilities="false"
+      Description="A scoundrel who uses stealth and trickery to overcome obstacles and enemies"
+      PrimaryAbilities="Dexterity"
+      SavingThrowProficiencies="Dexterity,Intelligence"
+      EquipmentProficiencies="LightArmor,SimpleWeapon,HandCrossbow,Longsword,Rapier,Shortsword">
+      <LevelModifiers>
+        <LevelModifier Level="1"  ProficiencyBonus="2" SneakAttack="1d6"  Features="Expertise,SneakAttack,TheivesCant"/>
+        <LevelModifier Level="2"  ProficiencyBonus="2" SneakAttack="1d6"  Features="CunningAction"/>
+        <LevelModifier Level="3"  ProficiencyBonus="2" SneakAttack="2d6"  Features="RogueishArchetype"/>
+        <LevelModifier Level="4"  ProficiencyBonus="2" SneakAttack="2d6"  Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="5"  ProficiencyBonus="3" SneakAttack="3d6"  Features="UncannyDodge"/>
+        <LevelModifier Level="6"  ProficiencyBonus="3" SneakAttack="3d6"  Features="Expertise"/>
+        <LevelModifier Level="7"  ProficiencyBonus="3" SneakAttack="4d6"  Features="Evasion"/>
+        <LevelModifier Level="8"  ProficiencyBonus="3" SneakAttack="4d6"  Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="9"  ProficiencyBonus="4" SneakAttack="5d6"  Features="RogueishArchetypeFeature"/>
+        <LevelModifier Level="10" ProficiencyBonus="4" SneakAttack="5d6"  Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="11" ProficiencyBonus="4" SneakAttack="6d6"  Features="ReliableTalent"/>
+        <LevelModifier Level="12" ProficiencyBonus="4" SneakAttack="6d6"  Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="13" ProficiencyBonus="5" SneakAttack="7d6"  Features="RogueishArchetypeFeature"/>
+        <LevelModifier Level="14" ProficiencyBonus="5" SneakAttack="7d6"  Features="Blindsense"/>
+        <LevelModifier Level="15" ProficiencyBonus="5" SneakAttack="8d6"  Features="SlipperyMind"/>
+        <LevelModifier Level="16" ProficiencyBonus="5" SneakAttack="8d6"  Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="17" ProficiencyBonus="6" SneakAttack="9d6"  Features="RogueishArchetypeFeature"/>
+        <LevelModifier Level="18" ProficiencyBonus="6" SneakAttack="9d6"  Features="Elusive"/>
+        <LevelModifier Level="19" ProficiencyBonus="6" SneakAttack="10d6" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="20" ProficiencyBonus="6" SneakAttack="10d6" Features="StrokeOfLuck"/>
+      </LevelModifiers>
+    </Class>
+    <Class
+      Identifier="Sorcerer"
+      MaxHit="6"
+      AllowMultiplePrimaryAbilities="false"
+      Description="A spellcaster who draws on inherent magic from a gift or bloodline"
+      PrimaryAbilities="Charisma"
+      SavingThrowProficiencies="Constitution,Charisma"
+      EquipmentProficiencies="Dagger,Dart,Sling,Quarterstaff,LightCrossbow">
+      <LevelModifiers>
+        <LevelModifier Level="1"  ProficiencyBonus="2" SorceryPoints="0"  CantripsKnown="4" SpellsKnown="2"  SpellSlots="2,0,0,0,0,0,0,0,0" Features="Spellcasting,SorcerousOrigin"/>
+        <LevelModifier Level="2"  ProficiencyBonus="2" SorceryPoints="2"  CantripsKnown="4" SpellsKnown="3"  SpellSlots="3,0,0,0,0,0,0,0,0" Features="FontOfMagic"/>
+        <LevelModifier Level="3"  ProficiencyBonus="2" SorceryPoints="3"  CantripsKnown="4" SpellsKnown="4"  SpellSlots="4,2,0,0,0,0,0,0,0" Features="Metamagic"/>
+        <LevelModifier Level="4"  ProficiencyBonus="2" SorceryPoints="4"  CantripsKnown="5" SpellsKnown="5"  SpellSlots="4,3,0,0,0,0,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="5"  ProficiencyBonus="3" SorceryPoints="5"  CantripsKnown="5" SpellsKnown="6"  SpellSlots="4,3,2,0,0,0,0,0,0" Features=""/>
+        <LevelModifier Level="6"  ProficiencyBonus="3" SorceryPoints="6"  CantripsKnown="5" SpellsKnown="7"  SpellSlots="4,3,3,0,0,0,0,0,0" Features="SorcerousOriginFeature"/>
+        <LevelModifier Level="7"  ProficiencyBonus="3" SorceryPoints="7"  CantripsKnown="5" SpellsKnown="8"  SpellSlots="4,3,3,1,0,0,0,0,0" Features=""/>
+        <LevelModifier Level="8"  ProficiencyBonus="3" SorceryPoints="8"  CantripsKnown="5" SpellsKnown="9"  SpellSlots="4,3,3,2,0,0,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="9"  ProficiencyBonus="4" SorceryPoints="9"  CantripsKnown="5" SpellsKnown="10" SpellSlots="4,3,3,3,1,0,0,0,0" Features=""/>
+        <LevelModifier Level="10" ProficiencyBonus="4" SorceryPoints="10" CantripsKnown="6" SpellsKnown="11" SpellSlots="4,3,3,3,2,0,0,0,0" Features="Metamagic"/>
+        <LevelModifier Level="11" ProficiencyBonus="4" SorceryPoints="11" CantripsKnown="6" SpellsKnown="12" SpellSlots="4,3,3,3,2,1,0,0,0" Features=""/>
+        <LevelModifier Level="12" ProficiencyBonus="4" SorceryPoints="12" CantripsKnown="6" SpellsKnown="12" SpellSlots="4,3,3,3,2,1,0,0,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="13" ProficiencyBonus="5" SorceryPoints="13" CantripsKnown="6" SpellsKnown="13" SpellSlots="4,3,3,3,2,1,1,0,0" Features=""/>
+        <LevelModifier Level="14" ProficiencyBonus="5" SorceryPoints="14" CantripsKnown="6" SpellsKnown="13" SpellSlots="4,3,3,3,2,1,1,0,0" Features="SorcerousOriginFeature"/>
+        <LevelModifier Level="15" ProficiencyBonus="5" SorceryPoints="15" CantripsKnown="6" SpellsKnown="14" SpellSlots="4,3,3,3,2,1,1,1,0" Features=""/>
+        <LevelModifier Level="16" ProficiencyBonus="5" SorceryPoints="16" CantripsKnown="6" SpellsKnown="14" SpellSlots="4,3,3,3,2,1,1,1,0" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="17" ProficiencyBonus="6" SorceryPoints="17" CantripsKnown="6" SpellsKnown="15" SpellSlots="4,3,3,3,2,1,1,1,1" Features="Metamagic"/>
+        <LevelModifier Level="18" ProficiencyBonus="6" SorceryPoints="18" CantripsKnown="6" SpellsKnown="15" SpellSlots="4,3,3,3,3,1,1,1,1" Features="SorcerousOriginFeature"/>
+        <LevelModifier Level="19" ProficiencyBonus="6" SorceryPoints="18" CantripsKnown="6" SpellsKnown="15" SpellSlots="4,3,3,3,3,2,1,1,1" Features="AbilityScoreImprovement"/>
+        <LevelModifier Level="20" ProficiencyBonus="6" SorceryPoints="20" CantripsKnown="6" SpellsKnown="15" SpellSlots="4,3,3,3,3,2,2,1,1" Features="SorcerousRestoration"/>
+      </LevelModifiers>
+    </Class>
+    <Class
+      Identifier="Warlock"
+      MaxHit="8"
+      AllowMultiplePrimaryAbilities="false"
+      Description="A wielder of magic that is derived from a bargain with an extraplanar entity"
+      PrimaryAbilities="Charisma"
+      SavingThrowProficiencies="Wisdom,Charisma"
+      EquipmentProficiencies="LightArmor,SimpleWeapon">
+        <LevelModifiers>
+          <LevelModifier Level="1"  ProficiencyBonus="2" CantripsKnown="2" SpellsKnown="2"  SpellSlots="1" SlotLevel="1" InvocationsKnown="0" Features="OtherworldlyPatron,PactMagic"/>
+          <LevelModifier Level="2"  ProficiencyBonus="2" CantripsKnown="2" SpellsKnown="3"  SpellSlots="2" SlotLevel="1" InvocationsKnown="2" Features="EldritchInvocations"/>
+          <LevelModifier Level="3"  ProficiencyBonus="2" CantripsKnown="2" SpellsKnown="4"  SpellSlots="2" SlotLevel="2" InvocationsKnown="2" Features="PactBoon"/>
+          <LevelModifier Level="4"  ProficiencyBonus="2" CantripsKnown="3" SpellsKnown="5"  SpellSlots="2" SlotLevel="2" InvocationsKnown="2" Features="AbilityScoreImprovement"/>
+          <LevelModifier Level="5"  ProficiencyBonus="3" CantripsKnown="3" SpellsKnown="6"  SpellSlots="2" SlotLevel="3" InvocationsKnown="3" Features=""/>
+          <LevelModifier Level="6"  ProficiencyBonus="3" CantripsKnown="3" SpellsKnown="7"  SpellSlots="2" SlotLevel="3" InvocationsKnown="3" Features="OtherworldlyPatronFeature"/>
+          <LevelModifier Level="7"  ProficiencyBonus="3" CantripsKnown="3" SpellsKnown="8"  SpellSlots="2" SlotLevel="4" InvocationsKnown="4" Features=""/>
+          <LevelModifier Level="8"  ProficiencyBonus="3" CantripsKnown="3" SpellsKnown="9"  SpellSlots="2" SlotLevel="4" InvocationsKnown="4" Features="AbilityScoreImprovement"/>
+          <LevelModifier Level="9"  ProficiencyBonus="4" CantripsKnown="3" SpellsKnown="10" SpellSlots="2" SlotLevel="5" InvocationsKnown="5" Features=""/>
+          <LevelModifier Level="10" ProficiencyBonus="4" CantripsKnown="4" SpellsKnown="10" SpellSlots="2" SlotLevel="5" InvocationsKnown="5" Features="OtherworldlyPatronFeature"/>
+          <LevelModifier Level="11" ProficiencyBonus="4" CantripsKnown="4" SpellsKnown="11" SpellSlots="3" SlotLevel="5" InvocationsKnown="5" Features="MysticArcanum6"/>
+          <LevelModifier Level="12" ProficiencyBonus="4" CantripsKnown="4" SpellsKnown="11" SpellSlots="3" SlotLevel="5" InvocationsKnown="6" Features="AbilityScoreImprovement"/>
+          <LevelModifier Level="13" ProficiencyBonus="5" CantripsKnown="4" SpellsKnown="12" SpellSlots="3" SlotLevel="5" InvocationsKnown="6" Features="MysticArcanum7"/>
+          <LevelModifier Level="14" ProficiencyBonus="5" CantripsKnown="4" SpellsKnown="12" SpellSlots="3" SlotLevel="5" InvocationsKnown="6" Features="OtherworldlyPatronFeature"/>
+          <LevelModifier Level="15" ProficiencyBonus="5" CantripsKnown="4" SpellsKnown="13" SpellSlots="3" SlotLevel="5" InvocationsKnown="7" Features="MysticArcanum8"/>
+          <LevelModifier Level="16" ProficiencyBonus="5" CantripsKnown="4" SpellsKnown="13" SpellSlots="3" SlotLevel="5" InvocationsKnown="7" Features="AbilityScoreImprovement"/>
+          <LevelModifier Level="17" ProficiencyBonus="6" CantripsKnown="4" SpellsKnown="14" SpellSlots="4" SlotLevel="5" InvocationsKnown="7" Features="MysticArcanum9"/>
+          <LevelModifier Level="18" ProficiencyBonus="6" CantripsKnown="4" SpellsKnown="14" SpellSlots="4" SlotLevel="5" InvocationsKnown="8" Features=""/>
+          <LevelModifier Level="19" ProficiencyBonus="6" CantripsKnown="4" SpellsKnown="15" SpellSlots="4" SlotLevel="5" InvocationsKnown="8" Features="AbilityScoreImprovement"/>
+          <LevelModifier Level="20" ProficiencyBonus="6" CantripsKnown="4" SpellsKnown="15" SpellSlots="4" SlotLevel="5" InvocationsKnown="8" Features="EldritchMaster"/>
+        </LevelModifiers>
+      </Class>
+      <Class
+        Identifier="Wizard"
+        MaxHit="6"
+        AllowMultiplePrimaryAbilities="false"
+        Description="A scholarly magic-user capable of manipulating the structures of reality"
+        PrimaryAbilities="Intelligence"
+        SavingThrowProficiencies="Intelligence,Wisdom"
+        EquipmentProficiencies="Dagger,Dart,Sling,Quarterstaff,LightCrossbow">
+        <LevelModifiers>
+          <LevelModifier Level="1"  ProficiencyBonus="2" CantripsKnown="3" SpellSlots="2,0,0,0,0,0,0,0,0" Features="Spellcasting,ArcaneRecovery"/>
+          <LevelModifier Level="2"  ProficiencyBonus="2" CantripsKnown="3" SpellSlots="3,0,0,0,0,0,0,0,0" Features="ArcaneTradition"/>
+          <LevelModifier Level="3"  ProficiencyBonus="2" CantripsKnown="3" SpellSlots="4,2,0,0,0,0,0,0,0" Features=""/>
+          <LevelModifier Level="4"  ProficiencyBonus="2" CantripsKnown="4" SpellSlots="4,3,0,0,0,0,0,0,0" Features="AbilityScoreImprovement"/>
+          <LevelModifier Level="5"  ProficiencyBonus="3" CantripsKnown="4" SpellSlots="4,3,2,0,0,0,0,0,0" Features=""/>
+          <LevelModifier Level="6"  ProficiencyBonus="3" CantripsKnown="4" SpellSlots="4,3,3,0,0,0,0,0,0" Features="ArcaneTraditionFeature"/>
+          <LevelModifier Level="7"  ProficiencyBonus="3" CantripsKnown="4" SpellSlots="4,3,3,1,0,0,0,0,0" Features=""/>
+          <LevelModifier Level="8"  ProficiencyBonus="3" CantripsKnown="4" SpellSlots="4,3,3,2,0,0,0,0,0" Features="AbilityScoreImprovement"/>
+          <LevelModifier Level="9"  ProficiencyBonus="4" CantripsKnown="4" SpellSlots="4,3,3,3,1,0,0,0,0" Features=""/>
+          <LevelModifier Level="10" ProficiencyBonus="4" CantripsKnown="5" SpellSlots="4,3,3,3,2,0,0,0,0" Features="ArcaneTraditionFeature"/>
+          <LevelModifier Level="11" ProficiencyBonus="4" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,0,0,0" Features=""/>
+          <LevelModifier Level="12" ProficiencyBonus="4" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,0,0,0" Features="AbilityScoreImprovement"/>
+          <LevelModifier Level="13" ProficiencyBonus="5" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,1,0,0" Features=""/>
+          <LevelModifier Level="14" ProficiencyBonus="5" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,1,0,0" Features="ArcaneTraditionFeature"/>
+          <LevelModifier Level="15" ProficiencyBonus="5" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,1,1,0" Features=""/>
+          <LevelModifier Level="16" ProficiencyBonus="5" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,1,1,0" Features="AbilityScoreImprovement"/>
+          <LevelModifier Level="17" ProficiencyBonus="6" CantripsKnown="5" SpellSlots="4,3,3,3,2,1,1,1,1" Features=""/>
+          <LevelModifier Level="18" ProficiencyBonus="6" CantripsKnown="5" SpellSlots="4,3,3,3,3,1,1,1,1" Features="SpellMastery"/>
+          <LevelModifier Level="19" ProficiencyBonus="6" CantripsKnown="5" SpellSlots="4,3,3,3,3,2,1,1,1" Features="AbilityScoreImprovement"/>
+          <LevelModifier Level="20" ProficiencyBonus="6" CantripsKnown="5" SpellSlots="4,3,3,3,3,2,2,1,1" Features="SignatureSpell"/>
+        </LevelModifiers>
+      </Class>
+  </AllClasses>
+</CharacterClasses>

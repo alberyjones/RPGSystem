@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Races xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AllRaces>
+    <Race
+      Identifier="Dwarf"
+      MaturityAge="50"
+      TypicalMaxAge="350"
+      TypicalAlignment="LawfulGood"
+      BaseWalkingSpeed="25"
+      EquipmentProficiencies="Battleaxe,Handaxe,ThrowingHammer,Warhammer"
+      Languages="Common,Dwarvish"
+      ConstitutionModifier="2">
+      <LevelModifiers>
+        <LevelModifier Level="1" Features="Darkvision,DwarvenResilience,ArtisanToolProficiency,Stonecunning" />
+      </LevelModifiers>
+      <SubRaces>
+        <SubRace
+          Identifier="HillDwarf"
+          DisplayName="Hill Dwarf"
+          BaseHeight="44"
+          HeightModifier="2d4"
+          BaseWeight="115"
+          WeightModifier="2d6"
+          WisdomModifier="1"
+          HitPointMaxModifier="1"
+          HitPointMaxLevelModifier="1"
+        />
+        <SubRace
+          Identifier="MountainDwarf"
+          DisplayName="Mountain Dwarf"
+          BaseHeight="48"
+          HeightModifier="2d4"
+          BaseWeight="130"
+          WeightModifier="2d6"
+          StrengthModifier="2"
+          EquipmentProficiencies="LightArmor,MediumArmor"
+        />
+      </SubRaces>
+    </Race>
+    <Race
+      Identifier="Elf"
+      MaturityAge="18"
+      TypicalMaxAge="750"
+      TypicalAlignment="ChaoticGood"
+      BaseWalkingSpeed="30"
+      Languages="Common,Elvish"
+      DexterityModifier="2">
+      <LevelModifiers>
+        <LevelModifier Level="1" Features="Darkvision,Perception,FeyAncestry,Trance" />
+      </LevelModifiers>
+      <SubRaces>
+        <SubRace
+          Identifier="HighElf"
+          DisplayName="High Elf"
+          BaseHeight="54"
+          HeightModifier="2d10"
+          BaseWeight="90"
+          WeightModifier="1d4"
+          IntelligenceModifier="1"
+          EquipmentProficiencies="Longsword,Shortsword,Shortbow,Longbow">
+          <LevelModifiers>
+            <LevelModifier Level="1" CantripsKnown="1" Features="ExtraLanguage" />
+          </LevelModifiers>
+        </SubRace>
+        <SubRace
+          Identifier="WoodElf"
+          DisplayName="Wood Elf"
+          BaseHeight="54"
+          HeightModifier="2d10"
+          BaseWeight="100"
+          WeightModifier="1d4"
+          WisdomModifier="1"
+          EquipmentProficiencies="Longsword,Shortsword,Shortbow,Longbow"
+          BaseWalkingSpeed="35">
+          <LevelModifiers>
+            <LevelModifier Level="1" Features="MaskOfTheWild" />
+          </LevelModifiers>
+        </SubRace>
+        <SubRace
+          Identifier="Drow"
+          DisplayName="Drow / Dark Elf"
+          TypicalAlignment="ChaoticEvil"
+          BaseHeight="53"
+          HeightModifier="2d6"
+          BaseWeight="75"
+          WeightModifier="1d6"
+          CharismaModifier="1"
+          EquipmentProficiencies="Rapier,Shortsword,HandCrossbow">
+          <LevelModifiers>
+            <LevelModifier Level="1" Features="SuperiorDarkvision,SunlightSensitivity,DrowMagic" />
+            <LevelModifier Level="3" Features="FaerieFire" />
+            <LevelModifier Level="5" Features="Darkness" />
+          </LevelModifiers>
+        </SubRace>
+      </SubRaces>
+    </Race>
+    <Race
+      Identifier="Halfling"
+      BaseHeight="31"
+      HeightModifier="2d4"
+      BaseWeight="35"
+      WeightModifier="1"
+      MaturityAge="20"
+      TypicalMaxAge="150"
+      TypicalAlignment="LawfulGood"
+      BaseWalkingSpeed="25"
+      Languages="Common,Halfling"
+      DexterityModifier="2">
+      <LevelModifiers>
+        <LevelModifier Level="1" Features="Lucky,Brave,HalflingNimbleness" />
+      </LevelModifiers>
+      <SubRaces>
+        <SubRace
+          Identifier="LightfootHalfling"
+          DisplayName="Lightfoot Halfling"
+          CharismaModifier="1">
+          <LevelModifiers>
+            <LevelModifier Level="1" Features="NaturallyStealthy" />
+          </LevelModifiers>
+        </SubRace>
+        <SubRace
+          Identifier="StoutHalfling"
+          DisplayName="Stout Halfling"
+          ConstitutionModifier="1">
+          <LevelModifiers>
+            <LevelModifier Level="1" Features="StoutResilience" />
+          </LevelModifiers>
+        </SubRace>
+      </SubRaces>
+    </Race>
+    <Race
+      Identifier="Human"
+      BaseHeight="56"
+      HeightModifier="2d10"
+      BaseWeight="110"
+      WeightModifier="2d4"
+      MaturityAge="18"
+      TypicalMaxAge="99"
+      BaseWalkingSpeed="30"
+      Languages="Common"
+      StrengthModifier="1"
+      DexterityModifier="1"
+      ConstitutionModifier="1"
+      IntelligenceModifier="1"
+      WisdomModifier="1"
+      CharismaModifier="1">
+      <LevelModifiers>
+        <LevelModifier Level="1" Features="ExtraLanguage" />
+      </LevelModifiers>
+    </Race>
+    <Race
+      Identifier="Dragonborn"
+      BaseHeight="66"
+      HeightModifier="2d8"
+      BaseWeight="175"
+      WeightModifier="2d6"
+      MaturityAge="15"
+      TypicalAlignment="ChaoticGood,ChaoticEvil"
+      TypicalMaxAge="80"
+      BaseWalkingSpeed="30"
+      Languages="Common,Draconic"
+      StrengthModifier="2"
+      CharismaModifier="1">
+      <LevelModifiers>
+        <LevelModifier Level="1" Features="DraconicAncestry,BreathWeapon,DamageResistance" />
+      </LevelModifiers>
+    </Race>
+    <Race
+      Identifier="Gnome"
+      BaseHeight="35"
+      HeightModifier="2d4"
+      BaseWeight="35"
+      WeightModifier="1"
+      MaturityAge="18"
+      TypicalAlignment="ChaoticGood,LawfulGood"
+      TypicalMaxAge="350"
+      BaseWalkingSpeed="25"
+      Languages="Common,Gnomish"
+      IntelligenceModifier="2">
+      <LevelModifiers>
+        <LevelModifier Level="1" Features="GnomeCunning" />
+      </LevelModifiers>
+      <SubRaces>
+        <SubRace
+          Identifier="ForestGnome"
+          DisplayName="Forest Gnome"
+          DexterityModifier="1">
+          <LevelModifiers>
+            <LevelModifier Level="1" Features="NaturalIllusionist,SpeakWithSmallBeasts" />
+          </LevelModifiers>
+        </SubRace>
+        <SubRace
+          Identifier="RockGnome"
+          DisplayName="Rock Gnome"
+          ConstitutionModifier="1">
+          <LevelModifiers>
+            <LevelModifier Level="1" Features="ArtificersLore,Tinker" />
+          </LevelModifiers>
+        </SubRace>
+      </SubRaces>
+    </Race>
+    <Race
+      Identifier="HalfElf"
+      DisplayName="Half-Elf"
+      BaseHeight="57"
+      HeightModifier="2d8"
+      BaseWeight="110"
+      WeightModifier="2d4"
+      MaturityAge="20"
+      TypicalMaxAge="180"
+      TypicalAlignment="ChaoticGood"
+      BaseWalkingSpeed="30"
+      Languages="Common,Elvish"
+      CharismaModifier="2">
+      <LevelModifiers>
+        <LevelModifier Level="1" Features="Darkvision,FeyAncestry,ExtraLanguage,SkillVersatility2" />
+      </LevelModifiers>
+    </Race>
+    <Race
+      Identifier="HalfOrc"
+      DisplayName="Half-Orc"
+      BaseHeight="58"
+      HeightModifier="2d10"
+      BaseWeight="140"
+      WeightModifier="2d6"
+      MaturityAge="14"
+      TypicalMaxAge="75"
+      TypicalAlignment="ChaoticEvil"
+      BaseWalkingSpeed="30"
+      Languages="Common,Orc"
+      StrengthModifier="2"
+      ConstitutionModifier="1">
+      <LevelModifiers>
+        <LevelModifier Level="1" Features="Darkvision,RelentlessEndurance,SavageAttacks,Intimidation" />
+      </LevelModifiers>
+    </Race>
+    <Race
+      Identifier="Tiefling"
+      BaseHeight="57"
+      HeightModifier="2d8"
+      BaseWeight="110"
+      WeightModifier="2d4"
+      MaturityAge="18"
+      TypicalMaxAge="110"
+      TypicalAlignment="ChaoticEvil,ChaoticGood"
+      BaseWalkingSpeed="30"
+      Languages="Common,Infernal"
+      IntelligenceModifier="1"
+      CharismaModifier="2">
+      <LevelModifiers>
+        <LevelModifier Level="1" Features="Darkvision,HellishResistance,InfernalLegacy" />
+        <LevelModifier Level="3" Features="HellishRebuke" />
+        <LevelModifier Level="5" Features="Darkness" />
+      </LevelModifiers>
+    </Race>
+  </AllRaces>
+</Races>

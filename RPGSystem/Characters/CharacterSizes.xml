@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CharacterSizes
+  DefaultSize="Medium">
+  <AllSizes>
+    <Size
+      Identifier="Tiny"
+      FootprintModifier="0.5"
+      LiftCarryModifier="0.5"
+    />
+    <Size
+      Identifier="Small"
+      FootprintModifier="1"
+      LiftCarryModifier="1"
+    />
+    <Size
+      Identifier="Medium"
+      FootprintModifier="1"
+      LiftCarryModifier="1"
+    />
+    <Size
+      Identifier="Large"
+      FootprintModifier="2"
+      LiftCarryModifier="2"
+    />
+    <Size
+      Identifier="Huge"
+      FootprintModifier="3"
+      LiftCarryModifier="4"
+    />
+    <Size
+      Identifier="Gargantuan"
+      FootprintModifier="4"
+      LiftCarryModifier="8"
+    />
+  </AllSizes>
+</CharacterSizes>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Alignments>
+  <AllAlignments>
+    <Alignment 
+      Identifier="LawfulGood" 
+      DisplayName="Lawful Good"
+    />
+    <Alignment
+      Identifier="NeutralGood"
+      DisplayName="Neutral Good"
+    />
+    <Alignment
+      Identifier="ChaoticGood"
+      DisplayName="Chaotic Good"
+    />
+    <Alignment
+      Identifier="Neutral"
+    />
+    <Alignment
+      Identifier="LawfulNeutral"
+      DisplayName="Lawful Neutral"
+    />
+    <Alignment
+      Identifier="ChaoticNeutral"
+      DisplayName="Chaotic Neutral"
+    />
+    <Alignment
+      Identifier="NeutralEvil"
+      DisplayName="Neutral Evil"
+    />
+    <Alignment
+      Identifier="LawfulEvil"
+      DisplayName="Lawful Evil"
+    />
+    <Alignment
+      Identifier="ChaoticEvil"
+      DisplayName="Chaotic Evil"
+    />
+  </AllAlignments>
+</Alignments>
