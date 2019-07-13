@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,17 +16,29 @@ namespace RPGSystem.Characters
         {
         }
 
+        private string description;
         [XmlElement]
-        public string Description { get; set; }
+        public string Description { get => description; set => SetField(ref description, value); }
 
+        private int maxHit;
         [XmlAttribute]
-        public int MaxHit { get; set; }
+        public int MaxHit { get => maxHit; set => SetField(ref maxHit, value); }
 
+        private bool allowMultiplePrimaryAbilities;
         [XmlAttribute]
-        public bool AllowMultiplePrimaryAbilities { get; set; }
+        public bool AllowMultiplePrimaryAbilities { get => allowMultiplePrimaryAbilities; set => SetField(ref allowMultiplePrimaryAbilities, value); }
 
+        private string rawPrimaryAbilities;
         [XmlAttribute("PrimaryAbilities")]
-        public string RawPrimaryAbilities { get; set; }
+        public string RawPrimaryAbilities
+        {
+            get => rawPrimaryAbilities;
+            set
+            {
+                SetField(ref rawPrimaryAbilities, value);
+                OnPropertyChanged(nameof(PrimaryAbilities));
+            }
+        }
 
         [XmlIgnore]
         public IEnumerable<Ability> PrimaryAbilities
@@ -39,8 +52,17 @@ namespace RPGSystem.Characters
             }
         }
 
+        private string rawSavingThrowProficiencies;
         [XmlAttribute("SavingThrowProficiencies")]
-        public string RawSavingThrowProficiencies { get; set; }
+        public string RawSavingThrowProficiencies
+        {
+            get => rawSavingThrowProficiencies;
+            set
+            {
+                SetField(ref rawSavingThrowProficiencies, value);
+                OnPropertyChanged(nameof(SavingThrowProficiencies));
+            }
+        }
 
         [XmlIgnore]
         public IEnumerable<Ability> SavingThrowProficiencies
@@ -54,8 +76,17 @@ namespace RPGSystem.Characters
             }
         }
 
+        private string rawEquipmentProficiencies;
         [XmlAttribute("EquipmentProficiencies")]
-        public string RawEquipmentProficiencies { get; set; }
+        public string RawEquipmentProficiencies
+        {
+            get => rawEquipmentProficiencies;
+            set
+            {
+                SetField(ref rawEquipmentProficiencies, value);
+                OnPropertyChanged(nameof(EquipmentProficiencies));
+            }
+        }
 
         [XmlIgnore]
         public IEnumerable<EquipmentType> EquipmentProficiencies
@@ -68,7 +99,7 @@ namespace RPGSystem.Characters
 
         [XmlArray]
         [XmlArrayItem("LevelModifier")]
-        public List<LevelModifier> LevelModifiers { get; } = new List<LevelModifier>();
+        public BindingList<LevelModifier> LevelModifiers { get; } = new BindingList<LevelModifier>();
 
         public int ProficiencyBonusForLevel(int level)
         {
@@ -89,7 +120,7 @@ namespace RPGSystem.Characters
     {
         [XmlArray]
         [XmlArrayItem("Class")]
-        public List<CharacterClass> AllClasses { get; } = new List<CharacterClass>();
+        public BindingList<CharacterClass> AllClasses { get; } = new BindingList<CharacterClass>();
 
         protected override IEnumerable<CharacterClass> EnumerateItems()
         {

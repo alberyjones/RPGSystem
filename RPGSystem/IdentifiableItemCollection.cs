@@ -1,38 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace RPGSystem
 {
-    public class IdentifiableItem
-    {
-        private string explicitDisplayName;
 
-        [XmlAttribute]
-        public string Identifier { get; set; }
-
-        [XmlAttribute]
-        public string DisplayName
-        {
-            get { return String.IsNullOrEmpty(explicitDisplayName) ? Identifier : explicitDisplayName; }
-            set { explicitDisplayName = value; }
-        }
-
-        public override string ToString()
-        {
-            return DisplayName;
-        }
-
-        public override int GetHashCode()
-        {
-            return Identifier?.GetHashCode() ?? 0;
-        }
-    }
-
-    public abstract class IdentifiableItemCollection<T> where T : IdentifiableItem
+    public abstract class IdentifiableItemCollection<T> : NotifyPropertyChangedBase where T : IdentifiableItem
     {
         private Dictionary<string, T> mainLookup = new Dictionary<string, T>();
 

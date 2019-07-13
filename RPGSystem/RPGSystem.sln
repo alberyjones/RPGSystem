@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "..\TestApp\TestA
 		{32EEBC4D-F955-4C3E-9D94-75376013137B} = {32EEBC4D-F955-4C3E-9D94-75376013137B}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGApp", "..\RPGApp\RPGApp.csproj", "{B88A2FFF-8E7E-46D5-A309-42F604004E66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{95497A49-3D35-4158-B267-935685B63EB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95497A49-3D35-4158-B267-935685B63EB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95497A49-3D35-4158-B267-935685B63EB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88A2FFF-8E7E-46D5-A309-42F604004E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88A2FFF-8E7E-46D5-A309-42F604004E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88A2FFF-8E7E-46D5-A309-42F604004E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88A2FFF-8E7E-46D5-A309-42F604004E66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

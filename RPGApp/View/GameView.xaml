@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="RPGApp.View.GameView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RPGApp.View" 
+             xmlns:localViewModel="clr-namespace:RPGApp.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <Label Content="{Binding ActiveGame.DisplayName}" FontWeight="Bold" />
+        <Label Content="{Binding ActiveGame.Description}" FontStyle="Italic" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="5">
+                <Label Content="Characters:" />
+                <ListView
+                    ItemsSource="{Binding ActiveGame.Characters}"
+                    SelectedItem="{Binding SelectedCharacter}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Label Content="{Binding DisplayName}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="5">
+                <local:CharacterInstanceControl DataContext="{Binding SelectedCharacter}"/>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</UserControl>

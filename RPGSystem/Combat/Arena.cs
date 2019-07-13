@@ -1,6 +1,7 @@
 ﻿using RPGSystem.Characters;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,29 +11,33 @@ namespace RPGSystem.Combat
 {
     public class Arena : IdentifiableItem
     {
+        private int sizeX;
         [XmlAttribute]
-        public int SizeX { get; set; }
+        public int SizeX { get => sizeX; set => SetField(ref sizeX, value); }
 
+        private int sizeY;
         [XmlAttribute]
-        public int SizeY { get; set; }
+        public int SizeY { get => sizeY; set => SetField(ref sizeY, value); }
 
+        private string defaultEntrance;
         [XmlAttribute]
-        public string DefaultEntrance { get; set; }
+        public string DefaultEntrance { get => defaultEntrance; set => SetField(ref defaultEntrance, value); }
 
+        private string defaultExit;
         [XmlAttribute]
-        public string DefaultExit { get; set; }
+        public string DefaultExit { get => defaultExit; set => SetField(ref defaultExit, value); }
 
         [XmlArray]
         [XmlArrayItem("Coords")]
-        public List<Coordinates> InaccessibleLocations { get; } = new List<Coordinates>();
+        public BindingList<Coordinates> InaccessibleLocations { get; } = new BindingList<Coordinates>();
 
         [XmlArray]
         [XmlArrayItem("Character")]
-        public List<CombatArenaCharacterLocation> CharacterLocations { get; } = new List<CombatArenaCharacterLocation>();
+        public BindingList<CombatArenaCharacterLocation> CharacterLocations { get; } = new BindingList<CombatArenaCharacterLocation>();
 
         [XmlArray]
         [XmlArrayItem("Door")]
-        public List<CombatArenaDoor> Doors { get; } = new List<CombatArenaDoor>();
+        public BindingList<CombatArenaDoor> Doors { get; } = new BindingList<CombatArenaDoor>();
 
         public bool IsLocationAvailable(int x, int y, string ignoreCharacter = null)
         {

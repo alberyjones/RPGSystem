@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,21 +10,24 @@ namespace RPGSystem.Characters
 {
     public class CharacterSize : IdentifiableItem
     {
+        private double footprintModifier;
         [XmlAttribute]
-        public double FootprintModifier { get; set; }
+        public double FootprintModifier { get => footprintModifier; set => SetField(ref footprintModifier, value); }
 
+        private double liftCarryModifier;
         [XmlAttribute]
-        public double LiftCarryModifier { get; set; }
+        public double LiftCarryModifier { get => liftCarryModifier; set => SetField(ref liftCarryModifier, value); }
     }
 
     public class CharacterSizes : IdentifiableItemCollection<CharacterSize>
     {
+        private string defaultSize;
         [XmlAttribute]
-        public string DefaultSize { get; set; }
+        public string DefaultSize { get => defaultSize; set => SetField(ref defaultSize, value); }
 
         [XmlArray]
         [XmlArrayItem("Size")]
-        public List<CharacterSize> AllSizes { get; } = new List<CharacterSize>();
+        public BindingList<CharacterSize> AllSizes { get; } = new BindingList<CharacterSize>();
 
         protected override IEnumerable<CharacterSize> EnumerateItems()
         {

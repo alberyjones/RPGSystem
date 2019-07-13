@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,8 +10,9 @@ namespace RPGSystem.Characters
 {
     public class Gender : IdentifiableItem
     {
+        private GenderType genderType;
         [XmlIgnore]
-        public GenderType GenderType { get; set; }
+        public GenderType GenderType { get => genderType; set => SetField(ref genderType, value); }
     }
 
     public class GenderExpression : Gender
@@ -39,11 +41,11 @@ namespace RPGSystem.Characters
     {
         [XmlArray]
         [XmlArrayItem("GenderExpression")]
-        public List<GenderExpression> GenderExpressions { get; } = new List<GenderExpression>();
+        public BindingList<GenderExpression> GenderExpressions { get; } = new BindingList<GenderExpression>();
 
         [XmlArray]
         [XmlArrayItem("Sex")]
-        public List<Sex> Sexes { get; } = new List<Sex>();
+        public BindingList<Sex> Sexes { get; } = new BindingList<Sex>();
 
         protected override IEnumerable<Gender> EnumerateItems()
         {

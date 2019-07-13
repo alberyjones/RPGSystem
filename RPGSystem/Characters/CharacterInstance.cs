@@ -30,50 +30,72 @@ namespace RPGSystem.Characters
         {
         }
 
+        // TODO take into account consitution p177
+        private int hitPoints;
         [XmlAttribute]
-        public int HitPoints { get; set; } // TODO take into account consitution p177
+        public int HitPoints { get => hitPoints; set => SetField(ref hitPoints, value); }
 
+        private int experiencePoints;
         [XmlAttribute]
-        public int ExperiencePoints { get; set; }
+        public int ExperiencePoints { get => experiencePoints; set => SetField(ref experiencePoints, value); }
 
+        private int strength;
         [XmlAttribute]
-        public int Strength { get; set; }
+        public int Strength { get => strength; set => SetField(ref strength, value); }
 
+        private int dexterity;
         [XmlAttribute]
-        public int Dexterity { get; set; }
+        public int Dexterity { get => dexterity; set => SetField(ref dexterity, value); }
 
+        private int constitution;
         [XmlAttribute]
-        public int Constitution { get; set; }
+        public int Constitution { get => constitution; set => SetField(ref constitution, value); }
 
+        private int intelligence;
         [XmlAttribute]
-        public int Intelligence { get; set; }
+        public int Intelligence { get => intelligence; set => SetField(ref intelligence, value); }
 
+        private int wisdom;
         [XmlAttribute]
-        public int Wisdom { get; set; }
+        public int Wisdom { get => wisdom; set => SetField(ref wisdom, value); }
 
+        private int charisma;
         [XmlAttribute]
-        public int Charisma { get; set; }
+        public int Charisma { get => charisma; set => SetField(ref charisma, value); }
 
+        private int level;
         [XmlAttribute]
-        public int Level { get; set; }
+        public int Level { get => level; set => SetField(ref level, value); }
 
+        private int age;
         [XmlAttribute]
-        public int Age { get; set; }
+        public int Age { get => age; set => SetField(ref age, value); }
 
+        private int actualHeight;
         /// <summary>
         /// Height in inches
         /// </summary>
         [XmlAttribute]
-        public int ActualHeight { get; set; }
+        public int ActualHeight { get => actualHeight; set => SetField(ref actualHeight, value); }
 
+        private int actualWeight;
         /// <summary>
         /// Weight in lbs
         /// </summary>
         [XmlAttribute]
-        public int ActualWeight { get; set; }
+        public int ActualWeight { get => actualWeight; set => SetField(ref actualWeight, value); }
 
+        private string sizeIdentifier;
         [XmlAttribute]
-        public string SizeIdentifier { get; set; }
+        public string SizeIdentifier
+        {
+            get => sizeIdentifier;
+            set
+            {
+                SetField(ref sizeIdentifier, value);
+                OnPropertyChanged(nameof(Size));
+            }
+        }
 
         [XmlIgnore]
         public CharacterSize Size
@@ -98,8 +120,16 @@ namespace RPGSystem.Characters
             }
         }
 
+        private string rawGenderIdentity;
         [XmlAttribute("GenderIdentity")]
-        public string RawGenderIdentity { get; set; }
+        public string RawGenderIdentity {
+            get => rawGenderIdentity;
+            set
+            {
+                SetField(ref rawGenderIdentity, value);
+                OnPropertyChanged(nameof(GenderIdentity));
+            }
+        }
 
         [XmlIgnore]
         public IEnumerable<Gender> GenderIdentity
@@ -117,8 +147,17 @@ namespace RPGSystem.Characters
             }
         }
 
+        private string rawAttractedTo;
         [XmlAttribute("AttractedTo")]
-        public string RawAttractedTo { get; set; }
+        public string RawAttractedTo
+        {
+            get => rawAttractedTo;
+            set
+            {
+                SetField(ref rawAttractedTo, value);
+                OnPropertyChanged(nameof(AttractedTo));
+            }
+        }
 
         [XmlIgnore]
         public IEnumerable<Gender> AttractedTo
@@ -136,8 +175,17 @@ namespace RPGSystem.Characters
             }
         }
 
+        private string characterClassIdentifier;
         [XmlAttribute("CharacterClass")]
-        public string CharacterClassIdentifier { get; set; }
+        public string CharacterClassIdentifier
+        {
+            get => characterClassIdentifier; 
+            set
+            {
+                SetField(ref characterClassIdentifier, value);
+                OnPropertyChanged(nameof(CharacterClass));
+            }
+        }
 
         [XmlIgnore]
         public CharacterClass CharacterClass
@@ -148,8 +196,17 @@ namespace RPGSystem.Characters
             }
         }
 
+        private string raceIdentifier;
         [XmlAttribute("Race")]
-        public string RaceIdentifier { get; set; }
+        public string RaceIdentifier
+        {
+            get => raceIdentifier;
+            set
+            {
+                SetField(ref raceIdentifier, value);
+                OnPropertyChanged(nameof(Race));
+            }
+        }
 
         [XmlIgnore]
         public Race Race
@@ -160,8 +217,17 @@ namespace RPGSystem.Characters
             }
         }
 
+        private string alignmentIdentifier;
         [XmlAttribute("Alignment")]
-        public string AlignmentIdentifier { get; set; }
+        public string AlignmentIdentifier
+        {
+            get => alignmentIdentifier;
+            set
+            {
+                SetField(ref alignmentIdentifier, value);
+                OnPropertyChanged(nameof(Alignment));
+            }
+        }
 
         [XmlIgnore]
         public Alignment Alignment

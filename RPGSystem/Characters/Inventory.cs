@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,6 @@ namespace RPGSystem.Characters
     {
         [XmlArray]
         [XmlArrayItem("EquipmentInstance")]
-        public List<EquipmentInstance> EquipmentInstances { get; } = new List<EquipmentInstance>();
+        public BindingList<EquipmentInstance> EquipmentInstances { get; } = new BindingList<EquipmentInstance>();
     }
 }

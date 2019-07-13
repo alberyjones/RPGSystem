@@ -1,6 +1,7 @@
 ﻿using RPGSystem.Combat;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -136,6 +137,17 @@ namespace RPGSystem
                 return ChallengeResult.Fail;
             }
             return ChallengeResult.Tie;
+        }
+
+        public static void AddRange<T>(BindingList<T> list, IEnumerable<T> items)
+        {
+            if (items != null)
+            {
+                foreach (T item in items)
+                {
+                    list.Add(item);
+                }
+            }
         }
 
         //public static void BasicReflectCopy(object child, object parent, params string[] ignoreProps)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,52 +9,67 @@ using static RPGSystem.Utils;
 
 namespace RPGSystem.Characters
 {
-    public class LevelModifier : IComparable
+    public class LevelModifier : NotifyPropertyChangedBase, IComparable
     {
+        private int cantripsKnown;
         [XmlAttribute]
-        public int CantripsKnown { get; set; }
+        public int CantripsKnown { get => cantripsKnown; set => SetField(ref cantripsKnown, value); }
 
+        private int invocationsKnown;
         [XmlAttribute]
-        public int InvocationsKnown { get; set; }
+        public int InvocationsKnown { get => invocationsKnown; set => SetField(ref invocationsKnown, value); }
 
+        private int kiPoints;
         [XmlAttribute]
-        public int KiPoints { get; set; }
+        public int KiPoints { get => kiPoints; set => SetField(ref kiPoints, value); }
 
+        private int level;
         [XmlAttribute]
-        public int Level { get; set; }
+        public int Level { get => level; set => SetField(ref level, value); }
 
+        private string martialArts;
         [XmlAttribute]
-        public string MartialArts { get; set; }
+        public string MartialArts { get => martialArts; set => SetField(ref martialArts, value); }
 
+        private int proficiencyBonus;
         [XmlAttribute]
-        public int ProficiencyBonus { get; set; }
+        public int ProficiencyBonus { get => proficiencyBonus; set => SetField(ref proficiencyBonus, value); }
 
+        private int rageDamage;
         [XmlAttribute]
-        public int RageDamage { get; set; }
+        public int RageDamage { get => rageDamage; set => SetField(ref rageDamage, value); }
 
+        private int rages;
         [XmlAttribute]
-        public int Rages { get; set; }
+        public int Rages { get => rages; set => SetField(ref rages, value); }
 
+        private string rawFeatures;
         [XmlAttribute("Features")]
-        public string RawFeatures { get; set; }
+        public string RawFeatures { get => rawFeatures; set => SetField(ref rawFeatures, value); }
 
+        private string rawSpellSlots;
         [XmlAttribute("SpellSlots")]
-        public string RawSpellSlots { get; set; }
+        public string RawSpellSlots { get => rawSpellSlots; set => SetField(ref rawSpellSlots, value); }
 
+        private int slotLevel;
         [XmlAttribute]
-        public int SlotLevel { get; set; }
+        public int SlotLevel { get => slotLevel; set => SetField(ref slotLevel, value); }
 
+        private string sneakAttack;
         [XmlAttribute]
-        public string SneakAttack { get; set; }
+        public string SneakAttack { get => sneakAttack; set => SetField(ref sneakAttack, value); }
 
+        private int sorceryPoints;
         [XmlAttribute]
-        public int SorceryPoints { get; set; }
+        public int SorceryPoints { get => sorceryPoints; set => SetField(ref sorceryPoints, value); }
 
+        private int spellsKnown;
         [XmlAttribute]
-        public int SpellsKnown { get; set; }
+        public int SpellsKnown { get => spellsKnown; set => SetField(ref spellsKnown, value); }
 
+        private int unarmoredMovement;
         [XmlAttribute]
-        public int UnarmoredMovement { get; set; }
+        public int UnarmoredMovement { get => unarmoredMovement; set => SetField(ref unarmoredMovement, value); }
 
         public void CopyTo(LevelModifier otherModifier, bool merge = false)
         {
@@ -108,7 +124,7 @@ namespace RPGSystem.Characters
             return -1;
         }
 
-        public static List<LevelModifier> MergeLists(List<LevelModifier> childList, List<LevelModifier> parentList)
+        public static BindingList<LevelModifier> MergeLists(BindingList<LevelModifier> childList, BindingList<LevelModifier> parentList)
         {
             if (childList == null)
             {
@@ -136,7 +152,9 @@ namespace RPGSystem.Characters
             }
             var newList = new List<LevelModifier>(modifiers.Values);
             newList.Sort();
-            return newList;
+            var result = new BindingList<LevelModifier>();
+            AddRange(result, newList);
+            return result;
         }
     }
 }

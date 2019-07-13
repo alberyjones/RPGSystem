@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,9 @@ namespace RPGSystem.Characters
 {
     public class EquipmentType : IdentifiableItem
     {
+        private string groups;
         [XmlAttribute]
-        public string Groups { get; set; }
+        public string Groups { get => groups; set => SetField(ref groups, value); }
     }
 
     public class EquipmentTypes : IdentifiableItemCollection<EquipmentType>
@@ -21,7 +23,7 @@ namespace RPGSystem.Characters
 
         [XmlArray]
         [XmlArrayItem("Equipment")]
-        public List<EquipmentType> AllEquipment { get; } = new List<EquipmentType>();
+        public BindingList<EquipmentType> AllEquipment { get; } = new BindingList<EquipmentType>();
 
         public IEnumerable<EquipmentType> ItemsInGroup(string group)
         {

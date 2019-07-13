@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,56 +12,73 @@ namespace RPGSystem.Characters
 {
     public class Race : IdentifiableItem
     {
+        private int baseHeight;
         [XmlAttribute]
-        public int BaseHeight { get; set; }
+        public int BaseHeight { get => baseHeight; set => SetField(ref baseHeight, value); }
 
+        private string heightModifier;
         [XmlAttribute]
-        public string HeightModifier { get; set; }
+        public string HeightModifier { get => heightModifier; set => SetField(ref heightModifier, value); }
 
+        private int baseWeight;
         [XmlAttribute]
-        public int BaseWeight { get; set; }
+        public int BaseWeight { get => baseWeight; set => SetField(ref baseWeight, value); }
 
+        private string weightModifier;
         [XmlAttribute]
-        public string WeightModifier { get; set; }
+        public string WeightModifier { get => weightModifier; set => SetField(ref weightModifier, value); }
 
+        private int maturityAge;
         [XmlAttribute]
-        public int MaturityAge { get; set; }
+        public int MaturityAge { get => maturityAge; set => SetField(ref maturityAge, value); }
 
+        private int typicalMaxAge;
         [XmlAttribute]
-        public int TypicalMaxAge { get; set; }
+        public int TypicalMaxAge { get => typicalMaxAge; set => SetField(ref typicalMaxAge, value); }
 
+        private int baseWalkingSpeed;
         [XmlAttribute]
-        public int BaseWalkingSpeed { get; set; }
+        public int BaseWalkingSpeed { get => baseWalkingSpeed; set => SetField(ref baseWalkingSpeed, value); }
 
+        private int strengthModifier;
         [XmlAttribute]
-        public int StrengthModifier { get; set; }
+        public int StrengthModifier { get => strengthModifier; set => SetField(ref strengthModifier, value); }
 
+        private int dexterityModifier;
         [XmlAttribute]
-        public int DexterityModifier { get; set; }
+        public int DexterityModifier { get => dexterityModifier; set => SetField(ref dexterityModifier, value); }
 
+        private int constitutionModifier;
         [XmlAttribute]
-        public int ConstitutionModifier { get; set; }
+        public int ConstitutionModifier { get => constitutionModifier; set => SetField(ref constitutionModifier, value); }
 
+        private int intelligenceModifier;
         [XmlAttribute]
-        public int IntelligenceModifier { get; set; }
+        public int IntelligenceModifier { get => intelligenceModifier; set => SetField(ref intelligenceModifier, value); }
 
+        private int wisdomModifier;
         [XmlAttribute]
-        public int WisdomModifier { get; set; }
+        public int WisdomModifier { get => wisdomModifier; set => SetField(ref wisdomModifier, value); }
 
+        private int charismaModifier;
         [XmlAttribute]
-        public int CharismaModifier { get; set; }
+        public int CharismaModifier { get => charismaModifier; set => SetField(ref charismaModifier, value); }
 
+        private int hitPointMaxModifier;
         [XmlAttribute]
-        public int HitPointMaxModifier { get; set; }
+        public int HitPointMaxModifier { get => hitPointMaxModifier; set => SetField(ref hitPointMaxModifier, value); }
 
+        private int hitPointMaxLevelModifier;
         [XmlAttribute]
-        public int HitPointMaxLevelModifier { get; set; }
+        public int HitPointMaxLevelModifier { get => hitPointMaxLevelModifier; set => SetField(ref hitPointMaxLevelModifier, value); }
 
+        private string rawEquipmentProficiencies;
         [XmlAttribute("EquipmentProficiencies")]
-        public string RawEquipmentProficiencies { get; set; }
+        public string RawEquipmentProficiencies { get => rawEquipmentProficiencies; set => SetField(ref rawEquipmentProficiencies, value); }
 
+        private string rawTypicalAlignment;
         [XmlAttribute("TypicalAlignment")]
-        public string RawTypicalAlignment { get; set; }
+        public string RawTypicalAlignment { get => rawTypicalAlignment; set => SetField(ref rawTypicalAlignment, value); }
 
         [XmlIgnore]
         public IEnumerable<string> TypicalAlignment
@@ -80,8 +98,9 @@ namespace RPGSystem.Characters
             }
         }
 
+        private string rawLanguages;
         [XmlAttribute("Languages")]
-        public string RawLanguages { get; set; }
+        public string RawLanguages { get => rawLanguages; set => SetField(ref rawLanguages, value); }
 
         [XmlIgnore]
         public IEnumerable<string> Languages
@@ -94,14 +113,15 @@ namespace RPGSystem.Characters
 
         [XmlArray]
         [XmlArrayItem("LevelModifier")]
-        public List<LevelModifier> LevelModifiers { get; } = new List<LevelModifier>();
+        public BindingList<LevelModifier> LevelModifiers { get; } = new BindingList<LevelModifier>();
 
         [XmlArray]
         [XmlArrayItem("SubRace")]
-        public List<Race> SubRaces { get; } = new List<Race>();
+        public BindingList<Race> SubRaces { get; } = new BindingList<Race>();
 
+        private Race superRace;
         [XmlIgnore]
-        public Race SuperRace { get; set; }
+        public Race SuperRace { get => superRace; set => SetField(ref superRace, value); }
 
         public int AbilityModifier(Ability ability)
         {
@@ -143,7 +163,7 @@ namespace RPGSystem.Characters
                     otherRace.IntelligenceModifier = OverrideIfNullOrDefault<int>(otherRace.IntelligenceModifier, IntelligenceModifier);
                     var mergedList = LevelModifier.MergeLists(otherRace.LevelModifiers, LevelModifiers);
                     otherRace.LevelModifiers.Clear();
-                    otherRace.LevelModifiers.AddRange(mergedList);
+                    AddRange(otherRace.LevelModifiers, mergedList);
                     otherRace.MaturityAge = OverrideIfNullOrDefault<int>(otherRace.MaturityAge, MaturityAge);
                     otherRace.RawEquipmentProficiencies = MergeUniqueCommaSeparated(otherRace.RawEquipmentProficiencies, RawEquipmentProficiencies);
                     otherRace.RawLanguages = MergeUniqueCommaSeparated(otherRace.RawLanguages, RawLanguages);
@@ -169,14 +189,14 @@ namespace RPGSystem.Characters
                     otherRace.Identifier = Identifier;
                     otherRace.IntelligenceModifier = IntelligenceModifier;
                     otherRace.LevelModifiers.Clear();
-                    otherRace.LevelModifiers.AddRange(LevelModifiers);
+                    AddRange(otherRace.LevelModifiers, LevelModifiers);
                     otherRace.MaturityAge = MaturityAge;
                     otherRace.RawEquipmentProficiencies = RawEquipmentProficiencies;
                     otherRace.RawLanguages = RawLanguages;
                     otherRace.RawTypicalAlignment = RawTypicalAlignment;
                     otherRace.StrengthModifier = StrengthModifier;
                     otherRace.SubRaces.Clear();
-                    otherRace.SubRaces.AddRange(SubRaces);
+                    AddRange(otherRace.SubRaces, SubRaces);
                     otherRace.SuperRace = SuperRace;
                     otherRace.TypicalMaxAge = TypicalMaxAge;
                     otherRace.WeightModifier = WeightModifier;
@@ -198,7 +218,7 @@ namespace RPGSystem.Characters
     {
         [XmlArray]
         [XmlArrayItem("Race")]
-        public List<Race> AllRaces { get; } = new List<Race>();
+        public BindingList<Race> AllRaces { get; } = new BindingList<Race>();
 
         protected override IEnumerable<Race> EnumerateItems()
         {

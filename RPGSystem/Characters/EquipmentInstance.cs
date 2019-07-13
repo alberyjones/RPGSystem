@@ -7,12 +7,14 @@ using System.Xml.Serialization;
 
 namespace RPGSystem.Characters
 {
-    public class EquipmentInstance
+    public class EquipmentInstance : NotifyPropertyChangedBase
     {
+        private string equipmentTypeIdentifier;
         [XmlAttribute]
-        public string EquipmentItemIdentifier { get; set; }
+        public string EquipmentItemIdentifier { get => equipmentTypeIdentifier; set => SetField(ref equipmentTypeIdentifier, value); }
 
+        private int quantity;
         [XmlAttribute]
-        public int Quantity { get; set; }
+        public int Quantity { get => quantity; set => SetField(ref quantity, value); }
     }
 }

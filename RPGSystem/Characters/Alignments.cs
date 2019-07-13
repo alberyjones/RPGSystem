@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace RPGSystem.Characters
     {
         [XmlArray]
         [XmlArrayItem("Alignment")]
-        public List<Alignment> AllAlignments { get; } = new List<Alignment>();
+        public BindingList<Alignment> AllAlignments { get; } = new BindingList<Alignment>();
 
         protected override IEnumerable<Alignment> EnumerateItems()
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace RPGSystem.Characters
     {
         [XmlArray]
         [XmlArrayItem("SkillType")]
-        public List<SkillType> AllSkillTypes { get; } = new List<SkillType>();
+        public BindingList<SkillType> AllSkillTypes { get; } = new BindingList<SkillType>();
 
         protected override IEnumerable<SkillType> EnumerateItems()
         {
