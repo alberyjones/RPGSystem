@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\CharacterAbilityDisplayConverter.cs" />
+    <Compile Include="Converter\HeightDisplayConverter.cs" />
+    <Compile Include="Converter\WeightDisplayConverter.cs" />
     <Compile Include="ViewModel\CharacterInstanceViewModel.cs" />
     <Compile Include="ViewModel\GameViewModel.cs" />
     <Compile Include="ViewModel\BindingListWithSource.cs" />

@@ -29,6 +29,7 @@ namespace RPGApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            GameConfiguration.DataLoader = new RPGSystem.DataAccess.LocalXmlLoader(@"F:\Documents\Visual Studio Projects\RPGSystem\RPGSystem");
             gameView.ViewModel.ActiveGame = Game.CreateExampleGame();
         }
     }

@@ -22,7 +22,8 @@ namespace RPGSystem.Characters
                 CharacterClassIdentifier = charClass,
                 SizeIdentifier = GameConfiguration.CharacterSizes.DefaultSize
             };
-            instance.RollBasedOnRace();
+            instance.RollAttributesBasedOnRace();
+            instance.RollAttributesBasedOnClass();
             return instance;
         }
 
@@ -373,26 +374,57 @@ namespace RPGSystem.Characters
 
         public int AbilityScore(Ability ability)
         {
-            int raceModifier = Race?.AbilityModifier(ability) ?? 0;
-            switch (ability)
-            {
-                case Ability.Strength:
-                    return Strength + raceModifier;
-                case Ability.Dexterity:
-                    return Dexterity + raceModifier;
-                case Ability.Constitution:
-                    return Constitution + raceModifier;
-                case Ability.Intelligence:
-                    return Intelligence + raceModifier;
-                case Ability.Wisdom:
-                    return Wisdom + raceModifier;
-                case Ability.Charisma:
-                    return Charisma + raceModifier;
-            }
-            return 0;
+            return this[ability] + (Race?.AbilityModifier(ability) ?? 0);
         }
 
-        public bool RollBasedOnRace()
+        public int this[Ability ability]
+        {
+            get
+            {
+                switch (ability)
+                {
+                    case Ability.Strength:
+                        return Strength;
+                    case Ability.Dexterity:
+                        return Dexterity;
+                    case Ability.Constitution:
+                        return Constitution;
+                    case Ability.Intelligence:
+                        return Intelligence;
+                    case Ability.Wisdom:
+                        return Wisdom;
+                    case Ability.Charisma:
+                        return Charisma;
+                }
+                return 0;
+            }
+            set
+            {
+                switch (ability)
+                {
+                    case Ability.Strength:
+                        Strength = value;
+                        break;
+                    case Ability.Dexterity:
+                        Dexterity = value;
+                        break;
+                    case Ability.Constitution:
+                        Constitution = value;
+                        break;
+                    case Ability.Intelligence:
+                        Intelligence = value;
+                        break;
+                    case Ability.Wisdom:
+                        Wisdom = value;
+                        break;
+                    case Ability.Charisma:
+                        Charisma = value;
+                        break;
+                }
+            }
+        }
+
+        public bool RollAttributesBasedOnRace()
         {
             var race = Race;
             if (race != null)
@@ -401,6 +433,63 @@ namespace RPGSystem.Characters
                 ActualHeight = race.BaseHeight + additionalHeight;
                 ActualWeight = race.BaseWeight + (additionalHeight * Dice.Roll(race.WeightModifier));
                 Age = RandomSingleton.Next(race.MaturityAge * 3 / 4, race.TypicalMaxAge);
+                foreach (var alignment in race.TypicalAlignment)
+                {
+                    AlignmentIdentifier = alignment;
+                    if (Utils.RandomSingleton.Next(1,10) > 5)
+                    {
+                        break;
+                    }
+                }
+                if (String.IsNullOrEmpty(AlignmentIdentifier))
+                {
+                    AlignmentIdentifier = "Neutral";
+                }
+                return true;
+            }
+            return false;
+        }
+
+        public bool RollAttributesBasedOnClass()
+        {
+            var charClass = CharacterClass;
+            if (charClass != null)
+            {
+                List<int> abilityScores = new List<int>();
+                for (int i=0; i < 6; i++)
+                {
+                    abilityScores.Add(Dice.RollBasicAbility());
+                }
+                abilityScores.Sort();
+                abilityScores.Reverse();
+                List<Ability> valuesSet = new List<Ability>();
+                foreach (var ability in charClass.PrimaryAbilities)
+                {
+                    int nextVal = abilityScores[0];
+                    abilityScores.RemoveAt(0);
+                    this[ability] = nextVal;
+                    valuesSet.Add(ability);
+                }
+                foreach (var ability in charClass.SavingThrowProficiencies)
+                {
+                    if (!valuesSet.Contains(ability))
+                    {
+                        int nextVal = abilityScores[0];
+                        abilityScores.RemoveAt(0);
+                        this[ability] = nextVal;
+                        valuesSet.Add(ability);
+                    }
+                }
+                foreach (Ability ability in Enum.GetValues(typeof(Ability)))
+                {
+                    if (!valuesSet.Contains(ability))
+                    {
+                        int nextVal = abilityScores[0];
+                        abilityScores.RemoveAt(0);
+                        this[ability] = nextVal;
+                        valuesSet.Add(ability);
+                    }
+                }
                 return true;
             }
             return false;

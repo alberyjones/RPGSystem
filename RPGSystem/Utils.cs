@@ -1,4 +1,5 @@
 ﻿using RPGSystem.Combat;
+using RPGSystem.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,7 +8,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace RPGSystem
 {
@@ -16,47 +16,6 @@ namespace RPGSystem
         private Utils() { }
 
         public static Random RandomSingleton { get; } = new Random();
-
-        public static bool TryLoad<T>(string file, out T item) where T : class
-        {
-            item = null;
-            try
-            {
-                if (!String.IsNullOrEmpty(file) && File.Exists(file))
-                {
-                    using (var fs = File.OpenRead(file))
-                    {
-                        XmlSerializer serializer = new XmlSerializer(typeof(T));
-                        item = serializer.Deserialize(fs) as T;
-                    }
-                    return true;
-                }
-            }
-            catch (Exception)
-            {
-            }
-            return false;
-        }
-
-        public static bool Save<T>(T item, string file) where T : class
-        {
-            try
-            {
-                if (item != null)
-                {
-                    using (var fs = File.OpenWrite(file))
-                    {
-                        XmlSerializer serializer = new XmlSerializer(typeof(T));
-                        serializer.Serialize(fs, item);
-                    }
-                    return true;
-                }
-            }
-            catch (Exception)
-            {
-            }
-            return false;
-        }
 
         public static List<string> ListFromCommaSeparated(string text)
         {
@@ -147,6 +106,17 @@ namespace RPGSystem
                 {
                     list.Add(item);
                 }
+            }
+        }
+
+        public static void DivideWithRemainder(int numerator, int denominator, out int wholeNumbers, out int remainder)
+        {
+            wholeNumbers = 0;
+            remainder = numerator;
+            while (remainder >= denominator)
+            {
+                wholeNumbers++;
+                remainder -= denominator;
             }
         }
 

@@ -30,12 +30,12 @@ namespace RPGSystem
 
         public bool Save(string file)
         {
-            return Utils.Save<Game>(this, file);
+            return GameConfiguration.DataLoader.Save<Game>(this, file);
         }
 
         public static Game Load(string file)
         {
-            Utils.TryLoad<Game>(file, out Game game);
+            GameConfiguration.DataLoader.TryLoad<Game>(file, out Game game);
             return game;
         }
 
@@ -47,25 +47,13 @@ namespace RPGSystem
             game.DisplayName = "Example Game";
             game.Description = "Generated example game";
 
-            CharacterInstance c = new CharacterInstance();
-            c.DisplayName = "Bob The Swordsman";
-            c.RaceIdentifier = "Human";
-            c.CharacterClassIdentifier = "Fighter";
-            c.RollBasedOnRace();
+            CharacterInstance c = CharacterInstance.RollNew("Bob The Swordsman", 1);
             game.Characters.Add(c);
 
-            c = new CharacterInstance();
-            c.DisplayName = "Urgar The Deadly";
-            c.RaceIdentifier = "HalfOrc";
-            c.CharacterClassIdentifier = "Barbarian";
-            c.RollBasedOnRace();
+            c = CharacterInstance.RollNew("Urgar The Deadly", 5, "HalfOrc", "Barbarian");
             game.Characters.Add(c);
 
-            c = new CharacterInstance();
-            c.DisplayName = "Tietron The Wise";
-            c.RaceIdentifier = "HighElf";
-            c.CharacterClassIdentifier = "Cleric";
-            c.RollBasedOnRace();
+            c = CharacterInstance.RollNew("Tietron The Wise", 9, "HighElf", "Cleric");
             game.Characters.Add(c);
 
             return game;

@@ -16,7 +16,7 @@ namespace RPGSystemTests
         [TestInitialize]
         public void Setup()
         {
-            GameConfiguration.ConfigFolder = @"F:\Documents\Visual Studio Projects\RPGSystem\RPGSystem";
+            GameConfiguration.DataLoader = new RPGSystem.DataAccess.LocalXmlLoader(@"F:\Documents\Visual Studio Projects\RPGSystem\RPGSystem");
         }
 
         [TestMethod]

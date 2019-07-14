@@ -1,4 +1,5 @@
 ﻿using RPGSystem.Characters;
+using RPGSystem.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,11 +12,13 @@ namespace RPGSystem
 {
     public class GameConfiguration
     {
+        public static IDataLoader DataLoader { get; set; } = new LocalXmlLoader(Environment.CurrentDirectory);
+
         public static Alignments Alignments
         {
             get
             {
-                return GetSingleton<Alignments>(@"Characters\Alignments.xml", (a) => { a.BuildLookups(); });
+                return GetSingleton<Alignments>(@"Characters\Alignments", (a) => { a.BuildLookups(); });
             }
         }
 
@@ -23,7 +26,7 @@ namespace RPGSystem
         {
             get
             {
-                return GetSingleton<CharacterClasses>(@"Characters\CharacterClasses.xml", (cc) => { cc.BuildLookups(); });
+                return GetSingleton<CharacterClasses>(@"Characters\CharacterClasses", (cc) => { cc.BuildLookups(); });
             }
         }
 
@@ -31,7 +34,7 @@ namespace RPGSystem
         {
             get
             {
-                return GetSingleton<CharacterSizes>(@"Characters\CharacterSizes.xml", (cs) => { cs.BuildLookups(); });
+                return GetSingleton<CharacterSizes>(@"Characters\CharacterSizes", (cs) => { cs.BuildLookups(); });
             }
         }
 
@@ -39,7 +42,7 @@ namespace RPGSystem
         {
             get
             {
-                return GetSingleton<Equipment>(@"Characters\Equipment.xml", (eq) => { eq.BuildLookups(); });
+                return GetSingleton<Equipment>(@"Characters\Equipment", (eq) => { eq.BuildLookups(); });
             }
         }
 
@@ -47,7 +50,7 @@ namespace RPGSystem
         {
             get
             {
-                return GetSingleton<EquipmentTypes>(@"Characters\EquipmentTypes.xml", (et) => { et.BuildLookups(); });
+                return GetSingleton<EquipmentTypes>(@"Characters\EquipmentTypes", (et) => { et.BuildLookups(); });
             }
         }
 
@@ -55,7 +58,7 @@ namespace RPGSystem
         {
             get
             {
-                return GetSingleton<Genders>(@"Characters\Genders.xml", (g) => { g.BuildLookups(); });
+                return GetSingleton<Genders>(@"Characters\Genders", (g) => { g.BuildLookups(); });
             }
         }
 
@@ -63,7 +66,7 @@ namespace RPGSystem
         {
             get
             {
-                return GetSingleton<Races>(@"Characters\Races.xml", (r) => { r.BuildLookups(); });
+                return GetSingleton<Races>(@"Characters\Races", (r) => { r.BuildLookups(); });
             }
         }
 
@@ -71,7 +74,7 @@ namespace RPGSystem
         {
             get
             {
-                return GetSingleton<SkillTypes>(@"Characters\SkillTypes.xml", (st) => { st.BuildLookups(); });
+                return GetSingleton<SkillTypes>(@"Characters\SkillTypes", (st) => { st.BuildLookups(); });
             }
         }
 
@@ -95,19 +98,17 @@ namespace RPGSystem
             return false;
         }
 
-        public static string ConfigFolder { get; set; } = Environment.CurrentDirectory;
-
-        private static T GetSingleton<T>(string relativeFilePath, Action<T> postLoadAction = null) where T : class
+        private static T GetSingleton<T>(string relativePath, Action<T> postLoadAction = null) where T : class
         {
-            if (String.IsNullOrEmpty(relativeFilePath))
+            if (String.IsNullOrEmpty(relativePath))
             {
                 return null;
             }
-            string key = GetKey(typeof(T), relativeFilePath);
+            string key = GetKey(typeof(T), relativePath);
             T singleton = null;
             if (!TryGetValue(key, out singleton))
             {
-                if (TryLoad<T>(Path.Combine(ConfigFolder, relativeFilePath), out singleton))
+                if (DataLoader.TryLoad<T>(relativePath, out singleton))
                 {
                     singletons[key] = singleton;
                     postLoadAction?.Invoke(singleton);

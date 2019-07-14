@@ -46,6 +46,7 @@
     <Compile Include="Characters\CharacterSizes.cs" />
     <Compile Include="Combat\Arena.cs" />
     <Compile Include="Combat\CombatManager.cs" />
+    <Compile Include="DataAccess\IDataLoader.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentifiableItemCollection.cs" />
     <Compile Include="Characters\CharacterClasses.cs" />

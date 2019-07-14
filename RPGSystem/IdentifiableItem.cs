@@ -27,6 +27,13 @@ namespace RPGSystem
             set { SetField(ref explicitDisplayName, value); }
         }
 
+        // Convenience for use with data-binding
+        [XmlIgnore]
+        public IdentifiableItem Self
+        {
+            get { return this; }
+        }
+
         public override string ToString()
         {
             return DisplayName;

@@ -27,7 +27,7 @@ namespace RPGSystem
 
         public static int RollBasicAbility()
         {
-            int[] rolls = RollMultiple(6, 4, 4);
+            int[] rolls = RollMultiple(4, 6, 1);
             int[] best3 = GetHighest(rolls, 3);
             return Sum(best3);
         }
@@ -93,7 +93,7 @@ namespace RPGSystem
         public static int[] GetHighest(int[] rolls, int numberToReturn = 1)
         {
             int[] highestRolls = new int[numberToReturn];
-            int[] sorted = Sort(rolls);
+            int[] sorted = Sort(rolls, false);
             for (int i = 0; i < numberToReturn; i++)
             {
                 highestRolls[i] = sorted[i];
