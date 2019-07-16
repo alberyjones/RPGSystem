@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:RPGApp"
         xmlns:View="clr-namespace:RPGApp.View" x:Class="RPGApp.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="812.8" Loaded="Window_Loaded">
     <Grid>
-        <View:GameView x:Name="gameView" HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="794" Margin="0,0,0,0"/>
+        <View:GameView x:Name="gameView" HorizontalAlignment="Left" Height="410" VerticalAlignment="Top" Width="794" Margin="0,0,0,0"/>
     </Grid>
 </Window>

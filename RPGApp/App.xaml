@@ -5,6 +5,7 @@
              xmlns:converter="clr-namespace:RPGApp.Converter"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <converter:BoolNotConverter x:Key="boolNotConverter" />
         <converter:HeightDisplayConverter x:Key="heightDisplayConverter" />
         <converter:WeightDisplayConverter x:Key="weightDisplayConverter" />
         <converter:CharacterStrengthDisplayConverter x:Key="characterStrengthDisplayConverter" />

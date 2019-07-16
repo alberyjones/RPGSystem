@@ -6,7 +6,77 @@
              xmlns:local="clr-namespace:RPGApp.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <local:CharacterInstanceControl DataContext="{Binding Character}"/>
-    </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Basic Attributes -->
+
+        <Label Content="Name:" Grid.Column="0" Grid.Row="0"/>
+        <TextBox Text="{Binding Character.DisplayName}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontWeight="Bold" IsReadOnly="{Binding IsReadOnly}" Margin="5" />
+
+        <Label Content="Race:" Grid.Column="4" Grid.Row="0"/>
+        <Label Content="{Binding Character.Race.DisplayName}" Grid.Column="5" Grid.Row="0" />
+
+        <Label Content="Age:" Grid.Column="0" Grid.Row="1"/>
+        <TextBox Text="{Binding Character.Age}" Grid.Column="1" Grid.Row="1" IsReadOnly="{Binding IsReadOnly}" Margin="5" />
+
+        <Label Content="Height:" Grid.Column="2" Grid.Row="1"/>
+        <TextBox Text="{Binding Character.ActualHeight, Converter={StaticResource heightDisplayConverter}}" Grid.Column="3" Grid.Row="1" IsReadOnly="{Binding IsReadOnly}" Margin="5" />
+
+        <Label Content="Weight:" Grid.Column="4" Grid.Row="1"/>
+        <TextBox Text="{Binding Character.ActualWeight, Converter={StaticResource weightDisplayConverter}}" Grid.Column="5" Grid.Row="1" IsReadOnly="{Binding IsReadOnly}" Margin="5" />
+
+        <Label Content="Class:" Grid.Column="0" Grid.Row="2"/>
+        <Label Content="{Binding Character.CharacterClass.DisplayName}" Grid.Column="1" Grid.Row="2" />
+
+        <Label Content="Level:" Grid.Column="2" Grid.Row="2"/>
+        <Label Content="{Binding Character.Level}" Grid.Column="3" Grid.Row="2" />
+
+        <Label Content="Alignment:" Grid.Column="4" Grid.Row="2"/>
+        <Label Content="{Binding Character.Alignment.DisplayName}" Grid.Column="5" Grid.Row="2" />
+
+        <!-- Abilities -->
+
+        <Label Content="Strength:" Grid.Column="0" Grid.Row="3"/>
+        <Label Content="{Binding Character, Converter={StaticResource characterStrengthDisplayConverter}}" Grid.Column="1" Grid.Row="3" />
+
+        <Label Content="Dexterity:" Grid.Column="2" Grid.Row="3"/>
+        <Label Content="{Binding Character, Converter={StaticResource characterDexterityDisplayConverter}}" Grid.Column="3" Grid.Row="3" />
+
+        <Label Content="Constitution:" Grid.Column="4" Grid.Row="3"/>
+        <Label Content="{Binding Character, Converter={StaticResource characterConstitutionDisplayConverter}}" Grid.Column="5" Grid.Row="3" />
+
+        <Label Content="Intelligence:" Grid.Column="0" Grid.Row="4"/>
+        <Label Content="{Binding Character, Converter={StaticResource characterIntelligenceDisplayConverter}}" Grid.Column="1" Grid.Row="4" />
+
+        <Label Content="Wisdom:" Grid.Column="2" Grid.Row="4"/>
+        <Label Content="{Binding Character, Converter={StaticResource characterWisdomDisplayConverter}}" Grid.Column="3" Grid.Row="4" />
+
+        <Label Content="Charisma:" Grid.Column="4" Grid.Row="4"/>
+        <Label Content="{Binding Character, Converter={StaticResource characterCharismaDisplayConverter}}" Grid.Column="5" Grid.Row="4" />
+        
+        <!-- Commands -->
+        <StackPanel Grid.Row="5" Grid.Column="0">
+            <Button Content="Begin Edit" Command="{Binding BeginEdit}" />
+            <Button Content="End Edit" Command="{Binding EndEdit}" />
+            <Button Content="Roll Race" Command="{Binding RollRaceAttributes}" />
+            <Button Content="Roll Class" Command="{Binding RollClassAttributes}" />
+        </StackPanel>
+    </Grid>
 </UserControl>

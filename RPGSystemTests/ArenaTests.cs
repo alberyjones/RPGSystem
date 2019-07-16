@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RPGSystem;
@@ -109,7 +110,7 @@ namespace RPGSystemTests
             {
                 Identifier = "MainEntrance",
                 Type = CombatArenaDoorType.Any,
-                Location = new Coordinates { X = 4, Y = 0},
+                Location = new Coordinates { X = 4, Y = 0 },
                 Facing = SimpleMapDirection.North
             });
             arena.Doors.Add(new CombatArenaDoor()
@@ -123,6 +124,22 @@ namespace RPGSystemTests
             CharacterInstance mediumCharacter = new CharacterInstance() { Identifier = "M", SizeIdentifier = "Medium" }; // 1 x 1
 
             Assert.IsTrue(arena.TryCharacterEnter(mediumCharacter));
+        }
+        [TestMethod]
+        public void ArenaTest4()
+        {
+
+            Regex re = new Regex("^([0-9]+)\'\\s*([0-9]+)\"");
+            var r = re.Match("5\' 3\"");
+            r = re.Match("11\' 10\"");
+
+            re = new Regex("([0-9]+)\'");
+            r = re.Match("5\' 3\"");
+            r = re.Match("11\' 10\"");
+
+            re = new Regex("([0-9]+)\"");
+            r = re.Match("5\' 3\"");
+            r = re.Match("11\' 10\"");
         }
     }
 }

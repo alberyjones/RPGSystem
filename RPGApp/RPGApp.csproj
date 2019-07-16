@@ -55,16 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\BoolNotConverter.cs" />
     <Compile Include="Converter\CharacterAbilityDisplayConverter.cs" />
     <Compile Include="Converter\HeightDisplayConverter.cs" />
     <Compile Include="Converter\WeightDisplayConverter.cs" />
     <Compile Include="ViewModel\CharacterInstanceViewModel.cs" />
+    <Compile Include="ViewModel\CustomCommand.cs" />
     <Compile Include="ViewModel\GameViewModel.cs" />
-    <Compile Include="ViewModel\BindingListWithSource.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
-    <Compile Include="View\CharacterInstanceControl.xaml.cs">
-      <DependentUpon>CharacterInstanceControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\CharacterInstanceView.xaml.cs">
       <DependentUpon>CharacterInstanceView.xaml</DependentUpon>
     </Compile>
@@ -83,10 +81,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\CharacterInstanceControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\CharacterInstanceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

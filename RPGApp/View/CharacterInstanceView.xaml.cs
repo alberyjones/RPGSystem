@@ -22,19 +22,9 @@ namespace RPGApp.View
     /// </summary>
     public partial class CharacterInstanceView : UserControl
     {
-        public CharacterInstanceViewModel ViewModel { get; }
-
         public CharacterInstanceView()
         {
             InitializeComponent();
-            ViewModel = new CharacterInstanceViewModel();
-            DataContext = ViewModel;
         }
-
-        //public CharacterInstance Character
-        //{
-        //    get => ViewModel.Character;
-        //    set => ViewModel.Character = value;
-        //}
     }
 }

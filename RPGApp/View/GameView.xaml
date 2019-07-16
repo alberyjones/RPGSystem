@@ -19,7 +19,7 @@
                 <Label Content="Characters:" />
                 <ListView
                     ItemsSource="{Binding ActiveGame.Characters}"
-                    SelectedItem="{Binding SelectedCharacter}">
+                    SelectedItem="{Binding SelectedCharacterViewModel.Character}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -28,9 +28,10 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Button Content="Add Character" Command="{Binding AddCharacter}" />
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="5">
-                <local:CharacterInstanceControl DataContext="{Binding SelectedCharacter}"/>
+                <local:CharacterInstanceView DataContext="{Binding SelectedCharacterViewModel}"/>
             </StackPanel>
         </Grid>
     </StackPanel>
