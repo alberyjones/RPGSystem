@@ -98,6 +98,13 @@ namespace RPGSystem.Characters
             }
         }
 
+        public void SwitchAbilityScores(Ability a1, Ability a2)
+        {
+            int a1Val = this[a1];
+            this[a1] = this[a2];
+            this[a2] = a1Val;
+        }
+
         [XmlIgnore]
         public CharacterSize Size
         {

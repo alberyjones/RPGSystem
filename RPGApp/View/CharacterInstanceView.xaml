@@ -70,13 +70,15 @@
 
         <Label Content="Charisma:" Grid.Column="4" Grid.Row="4"/>
         <Label Content="{Binding Character, Converter={StaticResource characterCharismaDisplayConverter}}" Grid.Column="5" Grid.Row="4" />
-        
+
         <!-- Commands -->
-        <StackPanel Grid.Row="5" Grid.Column="0">
-            <Button Content="Begin Edit" Command="{Binding BeginEdit}" />
-            <Button Content="End Edit" Command="{Binding EndEdit}" />
-            <Button Content="Roll Race" Command="{Binding RollRaceAttributes}" />
-            <Button Content="Roll Class" Command="{Binding RollClassAttributes}" />
-        </StackPanel>
+        
+        <Button Content="Begin Edit" Command="{Binding BeginEdit}" Grid.Row="5" Grid.Column="0" Margin="5" />
+        <Button Content="End Edit" Command="{Binding EndEdit}" Grid.Row="6" Grid.Column="0" Margin="5" />
+        <Button Content="Roll Race" Command="{Binding RollRaceAttributes}" Grid.Row="5" Grid.Column="1" Margin="5" />
+        <Button Content="Roll Class" Command="{Binding RollClassAttributes}" Grid.Row="6" Grid.Column="1" Margin="5" />
+        <local:AbilityComboBox SelectedItem="{Binding AbilityFrom}" Grid.Column="2" Grid.Row="5" IsEnabled="{Binding IsEditing}" Margin="5" />
+        <Button Content="&lt;- Switch -&gt;" Command="{Binding SwitchAbilityScores}" Grid.Column="3" Grid.Row="5" Margin="5" />
+        <local:AbilityComboBox SelectedItem="{Binding AbilityTo}" Grid.Column="4" Grid.Row="5" IsEnabled="{Binding IsEditing}" Margin="5" />
     </Grid>
 </UserControl>

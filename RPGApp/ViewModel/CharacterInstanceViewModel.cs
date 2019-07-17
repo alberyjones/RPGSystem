@@ -1,4 +1,5 @@
-﻿using RPGSystem.Characters;
+﻿using RPGSystem;
+using RPGSystem.Characters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace RPGApp.ViewModel
                 if (SetField(ref character, value))
                 {
                     // stop editing if the character changes
-                    IsEditing = false; 
+                    IsEditing = false;
                 }
             }
         }
@@ -28,12 +29,12 @@ namespace RPGApp.ViewModel
         public bool CanEdit
         {
             get => canEdit;
-            set 
+            set
             {
                 if (SetField(ref canEdit, value))
                 {
                     // we can no longer edit, switch out of edit mode if needed
-                    if (!canEdit) IsEditing = false; 
+                    if (!canEdit) IsEditing = false;
                 }
             }
         }
@@ -51,6 +52,20 @@ namespace RPGApp.ViewModel
             }
         }
 
+        private Ability abilityFrom;
+        public Ability AbilityFrom
+        {
+            get => abilityFrom;
+            set => SetField(ref abilityFrom, value);
+        }
+
+        private Ability abilityTo;
+        public Ability AbilityTo
+        {
+            get => abilityTo;
+            set => SetField(ref abilityTo, value);
+        }
+
         public bool IsReadOnly
         {
             get { return !IsEditing; }
@@ -64,12 +79,15 @@ namespace RPGApp.ViewModel
 
         public ICommand RollClassAttributes { get; private set; }
 
+        public ICommand SwitchAbilityScores { get; private set; }
+
         public CharacterInstanceViewModel()
         {
             BeginEdit = new CustomCommand(DoBeginEdit, CanBeginEdit);
             EndEdit = new CustomCommand(DoEndEdit, IsEditingCharacter);
             RollRaceAttributes = new CustomCommand(DoRollRaceAttributes, IsEditingCharacter);
             RollClassAttributes = new CustomCommand(DoRollClassAttributes, IsEditingCharacter);
+            SwitchAbilityScores = new CustomCommand(DoSwitchAbilityScores, IsEditingCharacter);
         }
 
         private bool CanBeginEdit(object parameters)
@@ -100,6 +118,11 @@ namespace RPGApp.ViewModel
         private void DoEndEdit(object parameters)
         {
             IsEditing = false;
+        }
+
+        private void DoSwitchAbilityScores(object parameters)
+        {
+            Character?.SwitchAbilityScores(AbilityFrom, AbilityTo);
         }
     }
 }
