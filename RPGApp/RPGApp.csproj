@@ -63,12 +63,16 @@
     <Compile Include="ViewModel\CustomCommand.cs" />
     <Compile Include="ViewModel\GameViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\AbilityComboBox.cs" />
+    <Compile Include="View\AlignmentComboBox.cs" />
+    <Compile Include="View\CharacterClassComboBox.cs" />
     <Compile Include="View\CharacterInstanceView.xaml.cs">
       <DependentUpon>CharacterInstanceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\GameView.xaml.cs">
       <DependentUpon>GameView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RaceComboBox.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

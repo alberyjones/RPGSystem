@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DisplayName>Example Game</DisplayName>
+  <Description>Generated example game</Description>
+  <Characters>
+    <Character Identifier="e8ba8cbd-8cdb-4ac0-8b95-f7aa44cab902" DisplayName="Bob The Swordsman" HitPoints="0" ExperiencePoints="0" Strength="13" Dexterity="13" Constitution="11" Intelligence="11" Wisdom="8" Charisma="5" Level="1" Age="92" ActualHeight="60" ActualWeight="122" SizeIdentifier="Medium" CharacterClass="Fighter" Race="Human" Alignment="Neutral" />
+    <Character Identifier="91d15361-7073-43aa-963b-2fe2d4fb264a" DisplayName="Urgar The Deadly" HitPoints="0" ExperiencePoints="0" Strength="12" Dexterity="10" Constitution="10" Intelligence="8" Wisdom="7" Charisma="6" Level="5" Age="61" ActualHeight="65" ActualWeight="196" SizeIdentifier="Medium" CharacterClass="Barbarian" Race="HalfOrc" Alignment="ChaoticEvil" />
+    <Character Identifier="cf1fa106-b623-4f37-b6d5-464b1e553cc5" DisplayName="Tietron The Wise" HitPoints="0" ExperiencePoints="0" Strength="9" Dexterity="9" Constitution="8" Intelligence="8" Wisdom="14" Charisma="10" Level="9" Age="313" ActualHeight="64" ActualWeight="110" SizeIdentifier="Medium" CharacterClass="Cleric" Race="HighElf" Alignment="ChaoticGood" />
+    <Character Identifier="fb0667cc-cbdb-499e-b097-c337caa647f5" DisplayName="Chris The Troubadour" HitPoints="0" ExperiencePoints="0" Strength="12" Dexterity="13" Constitution="11" Intelligence="11" Wisdom="10" Charisma="13" Level="1" Age="42" ActualHeight="70" ActualWeight="188" SizeIdentifier="Medium" CharacterClass="Bard" Race="Human" Alignment="NeutralGood" />
+  </Characters>
+</Game>

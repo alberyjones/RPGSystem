@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RPGApp.View" 
              xmlns:localViewModel="clr-namespace:RPGApp.ViewModel"
+             xmlns:rpgs="clr-namespace:RPGSystem;assembly=RPGSystem"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
@@ -28,6 +29,8 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Button Content="Load Game" Command="{Binding LoadGame}" />
+                <Button Content="Save Game" Command="{Binding SaveGame}" />
                 <Button Content="Add Character" Command="{Binding AddCharacter}" />
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="5">

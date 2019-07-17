@@ -28,11 +28,17 @@ namespace RPGApp.ViewModel
 
         public ICommand AddCharacter { get; private set; } 
 
+        public ICommand LoadGame { get; private set; }
+
+        public ICommand SaveGame { get; private set; }
+
         public GameViewModel()
         {
             SelectedCharacterViewModel = new CharacterInstanceViewModel();
             SelectedCharacterViewModel.CanEdit = true;
 
+            LoadGame = new CustomCommand(DoLoadGame);
+            SaveGame = new CustomCommand(DoSaveGame, IsActiveGameSet);
             AddCharacter = new CustomCommand(NewCharacter, IsActiveGameSet);
         }
 
@@ -47,6 +53,22 @@ namespace RPGApp.ViewModel
             ActiveGame.Characters.Add(newChar);
             SelectedCharacterViewModel.Character = newChar;
             SelectedCharacterViewModel.BeginEdit.Execute(null);
+        }
+
+        private void DoLoadGame(object parameters)
+        {
+            if (GameConfiguration.DataLoader.TryLoad<Game>("ExampleGame", out var game))
+            {
+                ActiveGame = game;
+            }
+        }
+
+        private void DoSaveGame(object parameters)
+        {
+            if (ActiveGame != null)
+            {
+                GameConfiguration.DataLoader.Save<Game>(ActiveGame, "ExampleGame");
+            }
         }
     }
 }

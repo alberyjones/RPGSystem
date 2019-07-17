@@ -105,6 +105,13 @@ namespace RPGSystem.Characters
             {
                 return GameConfiguration.CharacterSizes?.Find(SizeIdentifier);
             }
+            set
+            {
+                if (value != null && !String.IsNullOrEmpty(value.Identifier))
+                {
+                    SizeIdentifier = value.Identifier;
+                }
+            }
         }
 
         [XmlIgnore]
@@ -195,6 +202,13 @@ namespace RPGSystem.Characters
             {
                 return GameConfiguration.CharacterClasses?.Find(CharacterClassIdentifier);
             }
+            set
+            {
+                if (value != null && !String.IsNullOrEmpty(value.Identifier))
+                {
+                    CharacterClassIdentifier = value.Identifier;
+                }
+            }
         }
 
         private string raceIdentifier;
@@ -216,6 +230,13 @@ namespace RPGSystem.Characters
             {
                 return GameConfiguration.Races?.Find(RaceIdentifier);
             }
+            set
+            {
+                if (value != null && !String.IsNullOrEmpty(value.Identifier))
+                {
+                    RaceIdentifier = value.Identifier;
+                }
+            }
         }
 
         private string alignmentIdentifier;
@@ -236,6 +257,13 @@ namespace RPGSystem.Characters
             get
             {
                 return GameConfiguration.Alignments?.Find(AlignmentIdentifier);
+            }
+            set
+            {
+                if (value != null && !String.IsNullOrEmpty(value.Identifier))
+                {
+                    AlignmentIdentifier = value.Identifier;
+                }
             }
         }
 
