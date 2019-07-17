@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Game xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <DisplayName>Example Game</DisplayName>
-  <Description>Generated example game</Description>
+  <Description>This is the description of the game here</Description>
   <Characters>
     <Character Identifier="e8ba8cbd-8cdb-4ac0-8b95-f7aa44cab902" DisplayName="Bob The Swordsman" HitPoints="0" ExperiencePoints="0" Strength="13" Dexterity="13" Constitution="11" Intelligence="11" Wisdom="8" Charisma="5" Level="1" Age="92" ActualHeight="60" ActualWeight="122" SizeIdentifier="Medium" CharacterClass="Fighter" Race="Human" Alignment="Neutral" />
     <Character Identifier="91d15361-7073-43aa-963b-2fe2d4fb264a" DisplayName="Urgar The Deadly" HitPoints="0" ExperiencePoints="0" Strength="12" Dexterity="10" Constitution="10" Intelligence="8" Wisdom="7" Charisma="6" Level="5" Age="57" ActualHeight="77" ActualWeight="252" SizeIdentifier="Medium" CharacterClass="Barbarian" Race="HalfOrc" Alignment="ChaoticEvil" />

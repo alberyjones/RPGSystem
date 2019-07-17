@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace RPGApp.ViewModel
 {
-    public class GameViewModel : ViewModelBase
+    public class GameViewModel : EditableViewModel
     {
         private Game activeGame;
         public Game ActiveGame
@@ -26,6 +26,13 @@ namespace RPGApp.ViewModel
             set => SetField(ref selectedCharacterViewModel, value);
         }
 
+        private string filePath;
+        public string FilePath
+        {
+            get => filePath;
+            set => SetField(ref filePath, value);
+        }
+
         public ICommand AddCharacter { get; private set; } 
 
         public ICommand LoadGame { get; private set; }
@@ -35,11 +42,34 @@ namespace RPGApp.ViewModel
         public GameViewModel()
         {
             SelectedCharacterViewModel = new CharacterInstanceViewModel();
-            SelectedCharacterViewModel.CanEdit = true;
+            FilePath = "ExampleGame";
+            CanEdit = true;
 
             LoadGame = new CustomCommand(DoLoadGame);
             SaveGame = new CustomCommand(DoSaveGame, IsActiveGameSet);
-            AddCharacter = new CustomCommand(NewCharacter, IsActiveGameSet);
+            AddCharacter = new CustomCommand(NewCharacter, IsEditingItem);
+        }
+
+        protected override bool CanBeginEdit(object parameters)
+        {
+            return base.CanBeginEdit(parameters) && ActiveGame != null;
+        }
+
+        protected override bool IsEditingItem(object parameters)
+        {
+            return base.IsEditingItem(parameters) && ActiveGame != null;
+        }
+
+        protected override void DoBeginEdit(object parameters)
+        {
+            base.DoBeginEdit(parameters);
+            SelectedCharacterViewModel.CanEdit = true;
+        }
+
+        protected override void DoEndEdit(object parameters)
+        {
+            base.DoEndEdit(parameters);
+            SelectedCharacterViewModel.CanEdit = false;
         }
 
         private bool IsActiveGameSet(object parameters)
@@ -57,17 +87,27 @@ namespace RPGApp.ViewModel
 
         private void DoLoadGame(object parameters)
         {
-            if (GameConfiguration.DataLoader.TryLoad<Game>("ExampleGame", out var game))
+            if (!String.IsNullOrEmpty(FilePath))
             {
-                ActiveGame = game;
+                if (GameConfiguration.DataLoader.TryLoad<Game>(FilePath, out var game))
+                {
+                    ActiveGame = game;
+                }
+                else
+                {
+                    var g = new Game();
+                    g.DisplayName = FilePath;
+                    g.Description = $"Description of {FilePath}";
+                    ActiveGame = g;
+                }
             }
         }
 
         private void DoSaveGame(object parameters)
         {
-            if (ActiveGame != null)
+            if (ActiveGame != null && !String.IsNullOrEmpty(FilePath))
             {
-                GameConfiguration.DataLoader.Save<Game>(ActiveGame, "ExampleGame");
+                GameConfiguration.DataLoader.Save<Game>(ActiveGame, FilePath);
             }
         }
     }

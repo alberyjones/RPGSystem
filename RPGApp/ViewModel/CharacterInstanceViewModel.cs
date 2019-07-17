@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace RPGApp.ViewModel
 {
-    public class CharacterInstanceViewModel : ViewModelBase
+    public class CharacterInstanceViewModel : EditableViewModel
     {
         private CharacterInstance character;
         public CharacterInstance Character
@@ -21,33 +21,6 @@ namespace RPGApp.ViewModel
                 {
                     // stop editing if the character changes
                     IsEditing = false;
-                }
-            }
-        }
-
-        private bool canEdit;
-        public bool CanEdit
-        {
-            get => canEdit;
-            set
-            {
-                if (SetField(ref canEdit, value))
-                {
-                    // we can no longer edit, switch out of edit mode if needed
-                    if (!canEdit) IsEditing = false;
-                }
-            }
-        }
-
-        private bool isEditing;
-        public bool IsEditing
-        {
-            get => isEditing;
-            set
-            {
-                if (SetField(ref isEditing, value))
-                {
-                    OnPropertyChanged(nameof(IsReadOnly));
                 }
             }
         }
@@ -66,15 +39,6 @@ namespace RPGApp.ViewModel
             set => SetField(ref abilityTo, value);
         }
 
-        public bool IsReadOnly
-        {
-            get { return !IsEditing; }
-        }
-
-        public ICommand BeginEdit { get; private set; }
-
-        public ICommand EndEdit { get; private set; }
-
         public ICommand RollRaceAttributes { get; private set; }
 
         public ICommand RollClassAttributes { get; private set; }
@@ -83,21 +47,19 @@ namespace RPGApp.ViewModel
 
         public CharacterInstanceViewModel()
         {
-            BeginEdit = new CustomCommand(DoBeginEdit, CanBeginEdit);
-            EndEdit = new CustomCommand(DoEndEdit, IsEditingCharacter);
-            RollRaceAttributes = new CustomCommand(DoRollRaceAttributes, IsEditingCharacter);
-            RollClassAttributes = new CustomCommand(DoRollClassAttributes, IsEditingCharacter);
-            SwitchAbilityScores = new CustomCommand(DoSwitchAbilityScores, IsEditingCharacter);
+            RollRaceAttributes = new CustomCommand(DoRollRaceAttributes, IsEditingItem);
+            RollClassAttributes = new CustomCommand(DoRollClassAttributes, IsEditingItem);
+            SwitchAbilityScores = new CustomCommand(DoSwitchAbilityScores, IsEditingItem);
         }
 
-        private bool CanBeginEdit(object parameters)
+        protected override bool CanBeginEdit(object parameters)
         {
-            return CanEdit && !IsEditing && Character != null;
+            return base.CanBeginEdit(parameters) && Character != null;
         }
 
-        private bool IsEditingCharacter(object parameters)
+        protected override bool IsEditingItem(object parameters)
         {
-            return IsEditing && Character != null;
+            return base.IsEditingItem(parameters) && Character != null;
         }
 
         private void DoRollRaceAttributes(object parameters)
@@ -108,16 +70,6 @@ namespace RPGApp.ViewModel
         private void DoRollClassAttributes(object parameters)
         {
             Character?.RollAttributesBasedOnClass();
-        }
-
-        private void DoBeginEdit(object parameters)
-        {
-            IsEditing = true;
-        }
-
-        private void DoEndEdit(object parameters)
-        {
-            IsEditing = false;
         }
 
         private void DoSwitchAbilityScores(object parameters)

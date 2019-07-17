@@ -8,8 +8,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" Width="891.2">
     <StackPanel>
-        <Label Content="{Binding ActiveGame.DisplayName}" FontWeight="Bold" />
-        <Label Content="{Binding ActiveGame.Description}" FontStyle="Italic" />
+        <TextBox Text="{Binding ActiveGame.DisplayName}" FontWeight="Bold" IsReadOnly="{Binding IsReadOnly}" />
+        <TextBox Text="{Binding ActiveGame.Description}" FontStyle="Italic" IsReadOnly="{Binding IsReadOnly}" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -28,9 +28,23 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Content="Load Game" Command="{Binding LoadGame}" />
-                <Button Content="Save Game" Command="{Binding SaveGame}" />
-                <Button Content="Add Character" Command="{Binding AddCharacter}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button Content="Load Game" Command="{Binding LoadGame}" Grid.Row="0" Grid.Column="0" Margin="5" />
+                    <TextBox Text="{Binding FilePath}" Grid.Row="0" Grid.Column="1" Margin="5" />
+                    <Button Content="Save Game" Command="{Binding SaveGame}" Grid.Row="1" Grid.Column="0" Margin="5" />
+                    <Button Content="Add Character" Command="{Binding AddCharacter}" Grid.Row="1" Grid.Column="1" Margin="5" />
+                    <Button Content="Begin Edit" Command="{Binding BeginEdit}" Grid.Row="2" Grid.Column="0" Margin="5" />
+                    <Button Content="End Edit" Command="{Binding EndEdit}" Grid.Row="2" Grid.Column="1" Margin="5" />
+                </Grid>
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="5">
                 <local:CharacterInstanceView DataContext="{Binding SelectedCharacterViewModel}" />
